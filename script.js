@@ -379,6 +379,7 @@
     var prompt =
       "Eres " + name + ", asesor/a de la funeraria \"Servicios Funerarios 24h\" (Madrid Sur). " +
       "Hablas en español, con un tono humano, cercano, empático y breve (2 a 4 frases). " +
+      "Responde SIEMPRE en español, aunque el cliente escriba en otro idioma. " +
       "REGLA ESTRICTA: solo puedes hablar sobre esta funeraria y sus servicios (precios, zonas, " +
       "trámites, incineración, inhumación, traslados, tanatorio, seguros de decesos, previsión) " +
       "basándote ÚNICAMENTE en la INFORMACIÓN de abajo. Si te preguntan sobre cualquier otro tema " +
@@ -495,6 +496,7 @@
   /* ---------- Cadencia + límite de ritmo ---------- */
   var responseTimes = [];   // marcas de tiempo de respuestas de la IA
   var pending = false;
+  var firstReply = true;    // el primer mensaje tiene tiempos especiales
   function computeDelay() {
     var now = Date.now();
     var base = CHAT_CONFIG.minDelayMs + Math.random() * (CHAT_CONFIG.maxDelayMs - CHAT_CONFIG.minDelayMs);
@@ -536,19 +538,28 @@
     pending = true;
     setInputEnabled(false);
 
-    var typing = showTyping(agentName());
-    var delay = computeDelay();
     var replyPromise = askGemma(text);   // se pide ya; se muestra con cadencia humana
+
+    // Primer mensaje: "escribiendo" a los 15 s y respuesta a los 20 s.
+    // A partir de ahí: cadencia habitual 20-30 s (máx. 3/min).
+    var typingDelay, replyDelay;
+    if (firstReply) { typingDelay = 15000; replyDelay = 20000; }
+    else { typingDelay = 0; replyDelay = computeDelay(); }
+
+    var typingEl = null;
+    var typingTimer = setTimeout(function () { typingEl = showTyping(agentName()); }, typingDelay);
 
     setTimeout(function () {
       replyPromise.then(function (reply) {
-        if (typing && typing.parentNode) { typing.parentNode.removeChild(typing); }
+        clearTimeout(typingTimer);
+        if (typingEl && typingEl.parentNode) { typingEl.parentNode.removeChild(typingEl); }
         addMsg(sanitizeReply(reply), "bot");
         responseTimes.push(Date.now());
+        firstReply = false;
         pending = false;
         setInputEnabled(true);
         input.focus();
       });
-    }, delay);
+    }, replyDelay);
   });
 })();
