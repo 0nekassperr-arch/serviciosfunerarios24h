@@ -15,5 +15,3 @@ build/
 .env.*
 *.pem
 
-# Config del chat con secretos: NO subir la API key a un repo público
-chat-config.json

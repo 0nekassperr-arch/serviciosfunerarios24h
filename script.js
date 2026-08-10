@@ -428,6 +428,25 @@
   }
 
   /* ---------- UI del chat ---------- */
+  function sanitizeReply(t) {
+    if (!t) { return t; }
+    var drafts = t.match(/(?:draft|borrador)\s*\d*\s*:?\*?\s*(.+)/ig);
+    if (drafts && drafts.length) {
+      var last = drafts[drafts.length - 1]
+        .replace(/^[\s\S]*?(?:draft|borrador)\s*\d*\s*:?\*?\s*/i, "")
+        .replace(/[*"]/g, "").trim();
+      if (last) { return last; }
+    }
+    if (/persona:|constraint:|\byes\.\b|^\s*\*/im.test(t)) {
+      var lines = t.split(/\n/).map(function (s) { return s.replace(/[*]/g, "").trim(); }).filter(Boolean);
+      for (var i = lines.length - 1; i >= 0; i--) {
+        if (/^(hola|buenos|buenas|gracias|le invito|estamos|el (precio|coste|servicio)|s[ií] )/i.test(lines[i]) && lines[i].length > 15) {
+          return lines[i].replace(/^["']|["']$/g, "").trim();
+        }
+      }
+    }
+    return t.trim();
+  }
   function addMsg(text, who) {
     var el = document.createElement("div");
     el.className = "chat-msg chat-msg--" + who;
@@ -508,7 +527,7 @@
     setTimeout(function () {
       replyPromise.then(function (reply) {
         if (typing && typing.parentNode) { typing.parentNode.removeChild(typing); }
-        addMsg(reply, "bot");
+        addMsg(sanitizeReply(reply), "bot");
         responseTimes.push(Date.now());
         pending = false;
         setInputEnabled(true);
