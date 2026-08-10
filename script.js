@@ -133,6 +133,9 @@
 
     console.log("✅ [LEAD CAPTURADO]", JSON.stringify(lead, null, 2));
 
+    // Enviar al backend (Google Forms, oculto para el usuario)
+    sendToGoogleForms(lead);
+
     showSuccess(lead.nombre);
 
     // Ocultar campos tras el éxito
@@ -142,6 +145,47 @@
     var legal = form.querySelector(".lead-form__legal");
     if (legal) { legal.style.display = "none"; }
   });
+
+  /* =========================================================
+     BACKEND: envío oculto a Google Forms
+     El usuario NO ve nada de Google. Rellene GFORM_CONFIG con
+     la URL de "formResponse" y los IDs "entry.XXXX" de su
+     formulario de Google (se obtienen del enlace prerellenado).
+     ========================================================= */
+  var GFORM_CONFIG = {
+    // Ej.: "https://docs.google.com/forms/d/e/1FAIpQLSxxxx/formResponse"
+    action: "",
+    // Mapa: campo del sitio -> ID de la pregunta en Google Forms
+    entries: {
+      tipoServicio: "",   // "entry.1111111111"
+      ubicacion:    "",   // "entry.2222222222"
+      sepultura:    "",   // "entry.3333333333"
+      nombre:       "",   // "entry.4444444444"
+      telefono:     "",   // "entry.5555555555"
+      zona:         "",   // "entry.6666666666" (opcional)
+      fuente:       ""    // "entry.7777777777" (opcional)
+    }
+  };
+
+  function sendToGoogleForms(lead) {
+    if (!GFORM_CONFIG.action) {
+      console.log("ℹ️ Google Forms no configurado todavía (GFORM_CONFIG.action vacío).");
+      return;
+    }
+    var fd = new FormData();
+    var E = GFORM_CONFIG.entries;
+    if (E.tipoServicio) fd.append(E.tipoServicio, lead.tipoServicio);
+    if (E.ubicacion)    fd.append(E.ubicacion,    lead.ubicacion);
+    if (E.sepultura)    fd.append(E.sepultura,    lead.sepultura);
+    if (E.nombre)       fd.append(E.nombre,       lead.nombre);
+    if (E.telefono)     fd.append(E.telefono,     lead.telefono);
+    if (E.zona)         fd.append(E.zona,         lead.meta.zona);
+    if (E.fuente)       fd.append(E.fuente,       lead.meta.fuente);
+    // 'no-cors': Google no devuelve cabeceras CORS; el envío se realiza igualmente.
+    fetch(GFORM_CONFIG.action, { method: "POST", mode: "no-cors", body: fd })
+      .then(function () { console.log("📨 Lead enviado a Google Forms."); })
+      .catch(function (err) { console.warn("Fallo al enviar a Google Forms:", err); });
+  }
 
   /* ---------- Helpers ---------- */
   function getVal(id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; }

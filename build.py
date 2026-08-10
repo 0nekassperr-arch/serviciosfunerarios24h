@@ -104,8 +104,9 @@ def head(route, title, description, keywords, schema_blocks, og_image="assets/he
   <meta name="author" content="{BRAND}" />
   <meta name="theme-color" content="#c2a568" />
   <link rel="canonical" href="{canonical}" />
-  <link rel="icon" href="{FAVICON}" />
-  <link rel="apple-touch-icon" href="{FAVICON}" />
+  <link rel="icon" href="{prefix}favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="{og_type}" />
@@ -142,7 +143,7 @@ def header(route):
     return f"""  <header class="navbar" role="banner">
     <div class="container navbar__inner">
       <a class="brand" href="{L(prefix,'')}" aria-label="{BRAND} - inicio">
-        <span class="brand__logo" aria-hidden="true">✦</span>
+        <img class="brand__logo-img" src="{prefix}assets/logo-mark.png" alt="Servicios Funerarios 24h" width="48" height="48" />
         <span class="brand__text">
           <span class="brand__name">{BRAND}</span>
           <span class="brand__subtitle">Servicios funerarios 24h · Madrid Sur</span>
@@ -170,6 +171,7 @@ def footer(route):
     <div class="container">
       <div class="footer__inner footer__inner--wide">
         <div class="footer__col">
+          <img class="footer__logo" src="{L(prefix,'')}assets/logo-mark.png" alt="Servicios Funerarios 24h" width="70" height="70" onerror="this.style.display='none'" />
           <span class="brand__name">{BRAND}</span>
           <p class="footer__tag">Servicios funerarios 24 horas en Móstoles y todo el sur de Madrid. Atención inmediata, cercana y con precios transparentes.</p>
           <p class="footer__nap">
@@ -264,6 +266,7 @@ def org_schema():
         "@context":"https://schema.org","@type":"FuneralHome",
         "@id": BASE_URL + "/#business",
         "name": SITE_NAME, "url": BASE_URL, "image": BASE_URL+"/assets/hero-serenidad.jpg",
+        "logo": BASE_URL+"/assets/favicon-512.png",
         "telephone": PHONE_TEL, "email": EMAIL, "priceRange":"€€",
         "address":{"@type":"PostalAddress","streetAddress":ADDR_STREET,"postalCode":ADDR_ZIP,
                    "addressLocality":ADDR_CITY,"addressRegion":ADDR_PROV,"addressCountry":ADDR_CC},
