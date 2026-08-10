@@ -799,3 +799,12 @@ img { max-width: 100%; height: auto; display: block; }
 .brand__logo-img { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
 @media (max-width: 480px){ .brand__logo-img { width: 40px; height: 40px; } }
 .footer__logo { width: 70px; height: 70px; object-fit: contain; margin-bottom: 6px; }
+
+/* ----- Chat: indicador "escribiendo…" ----- */
+.chat-typing { display: flex; align-items: center; gap: 8px; color: var(--text-soft); font-style: italic; }
+.chat-typing__dots { display: inline-flex; gap: 3px; }
+.chat-typing__dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; animation: chatdot 1.2s infinite ease-in-out; }
+.chat-typing__dots i:nth-child(2) { animation-delay: .2s; }
+.chat-typing__dots i:nth-child(3) { animation-delay: .4s; }
+@keyframes chatdot { 0%,60%,100% { transform: translateY(0); opacity:.4; } 30% { transform: translateY(-4px); opacity:1; } }
+.chat-input input:disabled { background: var(--cream-2); color: var(--text-light); }
