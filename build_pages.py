@@ -241,7 +241,6 @@ def run(g):
     </section>'''
         body = (
           page_hero(f"Funeraria en {name} · 24 horas", z["hero_sub"]) +
-          crumbs_html(px, [("Inicio",""),("Zonas","zonas/"),(name, route)]) +
           urgency + benefits + local +
           faq_block(f"Preguntas frecuentes en {name}", zfaq) +
           lead_form(px, f"Solicite información en {name}",
