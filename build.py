@@ -145,8 +145,8 @@ def header(route):
       <a class="brand" href="{L(prefix,'')}" aria-label="{BRAND} - inicio">
         <img class="brand__logo-img" src="{prefix}assets/logo-mark.png" alt="Servicios Funerarios 24h" width="48" height="48" />
         <span class="brand__text">
-          <span class="brand__name">{BRAND}</span>
-          <span class="brand__subtitle">Servicios funerarios 24h · Madrid Sur</span>
+          <span class="brand__name">Servicios Funerarios 24h</span>
+          <span class="brand__subtitle">Madrid Sur</span>
         </span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
