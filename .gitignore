@@ -1,0 +1,16 @@
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+
+# Dependencias / builds (por si se añaden en el futuro)
+node_modules/
+dist/
+build/
+
+# Credenciales / entorno
+.env
+.env.*
+*.pem
