@@ -527,8 +527,12 @@ def run(g):
 
     # ============================== SITEMAP + ROBOTS + CNAME ==============================
     today = g["datetime"].date.today().isoformat() if "datetime" in g else __import__("datetime").date.today().isoformat()
+    # Excluir del sitemap las páginas legales (no interesa priorizar su indexación)
+    EXCLUDE = {"aviso-legal/", "privacidad/", "cookies/"}
     urls=[]
     for r in routes:
+        if r in EXCLUDE:
+            continue
         loc = BASE_URL + "/" + r
         pr = "1.0" if r=="" else ("0.9" if r in ("servicios/","zonas/","contacto/") else "0.7")
         urls.append(f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>{pr}</priority></url>")
