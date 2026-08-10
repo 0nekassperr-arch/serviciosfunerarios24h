@@ -318,12 +318,34 @@
   ];
   function localAnswer(text) {
     var t = (text || "").toLowerCase();
+    // Despedidas / agradecimientos: respuesta humana y variada
+    if (/(gracias|nada m[aá]s|hasta luego|adi[oó]s|un saludo|buenas noches|eso es todo|de acuerdo|vale$|okay|ok$|perfecto)/.test(t)) {
+      return pickVaried([
+        "Gracias a usted. Quedamos a su entera disposición para lo que necesite. Un fuerte abrazo.",
+        "A usted. Si más adelante necesita cualquier cosa, aquí estaremos, día y noche. Cuídese mucho.",
+        "Ha sido un placer ayudarle. No dude en escribirnos cuando lo desee. Le deseamos lo mejor.",
+        "Estamos a su lado para lo que haga falta. Le mando un saludo muy cordial."
+      ]);
+    }
     for (var i = 0; i < LOCAL_FAQ.length; i++) {
       for (var j = 0; j < LOCAL_FAQ[i].k.length; j++) {
         if (t.indexOf(LOCAL_FAQ[i].k[j]) !== -1) { return LOCAL_FAQ[i].a; }
       }
     }
-    return "Para darle la mejor atención, puede llamarnos al 910 000 000 (24 horas) y le ayudamos personalmente. ¿Desea que le llamemos nosotros?";
+    // Respuesta por defecto: variada (nunca la misma dos veces seguidas)
+    return pickVaried([
+      "Con mucho gusto le ayudo. ¿Puede contarme un poco más? Si lo prefiere, también estamos en el 910 000 000, las 24 horas.",
+      "Estoy aquí para ayudarle con lo que necesite sobre nuestros servicios. ¿En qué puedo orientarle?",
+      "Claro, dígame en qué puedo ayudarle. Si en algún momento lo prefiere, puede llamarnos al 910 000 000.",
+      "Por supuesto. Cuénteme qué necesita y le oriento con mucho gusto."
+    ]);
+  }
+  var _lastLocal = "";
+  function pickVaried(arr) {
+    var opts = arr.filter(function (x) { return x !== _lastLocal; });
+    var chosen = opts[Math.floor(Math.random() * opts.length)] || arr[0];
+    _lastLocal = chosen;
+    return chosen;
   }
 
   /* ---------- Llamadas a la API (key o token Bearer) ---------- */
@@ -387,6 +409,9 @@
       "puedes ayudar con temas relacionados con nuestros servicios funerarios y no facilites ninguna " +
       "otra información. No inventes datos que no aparezcan en la INFORMACIÓN; si no lo sabes, invita " +
       "a llamar al 910 000 000. " +
+      "Si el cliente se despide, da las gracias o dice que no necesita nada más, respóndele con una " +
+      "despedida cálida y humana (agradece, ofrécete para lo que necesite), variando las palabras y " +
+      "SIN repetir siempre la misma frase ni forzar que llame por teléfono. " +
       "FORMATO OBLIGATORIO: razona lo mínimo y escribe tu respuesta final para el cliente ENVUELTA " +
       "entre las etiquetas <R> y </R>. Dentro de <R>...</R> pon SOLO el mensaje para el cliente, sin " +
       "tu razonamiento.\n\nINFORMACIÓN:\n" + kb + "\n\nMensaje del cliente: " + userText;
