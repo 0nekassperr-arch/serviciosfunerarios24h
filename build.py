@@ -26,6 +26,10 @@ LEGAL_NAME = "[Razón social / Titular]"   # ⚠ placeholder
 LEGAL_NIF  = "[NIF / CIF]"                # ⚠ placeholder
 YEAR       = datetime.date.today().year
 
+# Verificación de Google Search Console (método etiqueta HTML).
+# Pega aquí SOLO el valor del content="..." que te da Search Console y ejecuta build.py.
+GSC_VERIFICATION = ""
+
 ZONES = [
     {"slug":"mostoles","name":"Móstoles","home_clone":True},
     {"slug":"alcorcon","name":"Alcorcón","home_clone":False,
@@ -92,6 +96,7 @@ def head(route, title, description, keywords, schema_blocks, og_image="assets/he
         '  <script type="application/ld+json">\n%s\n  </script>' % json.dumps(b, ensure_ascii=False, indent=2)
         for b in schema_blocks
     )
+    gsc = ('\n  <meta name="google-site-verification" content="%s" />' % GSC_VERIFICATION) if GSC_VERIFICATION else ""
     return f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -102,7 +107,7 @@ def head(route, title, description, keywords, schema_blocks, og_image="assets/he
   <meta name="keywords" content="{keywords}" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="{BRAND}" />
-  <meta name="theme-color" content="#c2a568" />
+  <meta name="theme-color" content="#c2a568" />{gsc}
   <link rel="canonical" href="{canonical}" />
   <link rel="icon" href="{prefix}favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/favicon-32.png" />
