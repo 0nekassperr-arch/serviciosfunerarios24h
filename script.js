@@ -385,7 +385,10 @@
       "ajeno a la funeraria (política, deportes, tecnología, etc.), responde amablemente que solo " +
       "puedes ayudar con temas relacionados con nuestros servicios funerarios y no facilites ninguna " +
       "otra información. No inventes datos que no aparezcan en la INFORMACIÓN; si no lo sabes, invita " +
-      "a llamar al 910 000 000.\n\nINFORMACIÓN:\n" + kb + "\n\nMensaje del cliente: " + userText;
+      "a llamar al 910 000 000. " +
+      "FORMATO OBLIGATORIO: razona lo mínimo y escribe tu respuesta final para el cliente ENVUELTA " +
+      "entre las etiquetas <R> y </R>. Dentro de <R>...</R> pon SOLO el mensaje para el cliente, sin " +
+      "tu razonamiento.\n\nINFORMACIÓN:\n" + kb + "\n\nMensaje del cliente: " + userText;
 
     // Opción A: proxy propio (la key vive en el servidor, no aquí)
     if (CHAT_CONFIG.proxyUrl) {
@@ -430,6 +433,18 @@
   /* ---------- UI del chat ---------- */
   function sanitizeReply(t) {
     if (!t) { return t; }
+    // 1) Prioriza el contenido entre <R> y </R>
+    var tags = t.match(/<R>([\s\S]*?)<\/R>/ig);
+    if (tags && tags.length) {
+      var inner = tags[tags.length - 1].replace(/<\/?R>/ig, "").trim();
+      if (inner) { return inner; }
+    }
+    var open = t.toLowerCase().lastIndexOf("<r>");
+    if (open > -1) {
+      var after = t.slice(open + 3).replace(/<\/?R>/ig, "").trim();
+      if (after) { return after; }
+    }
+    // 2) Sin etiquetas: recupera el último "borrador/draft"
     var drafts = t.match(/(?:draft|borrador)\s*\d*\s*:?\*?\s*(.+)/ig);
     if (drafts && drafts.length) {
       var last = drafts[drafts.length - 1]
@@ -437,6 +452,7 @@
         .replace(/[*"]/g, "").trim();
       if (last) { return last; }
     }
+    // 3) Heurística final
     if (/persona:|constraint:|\byes\.\b|^\s*\*/im.test(t)) {
       var lines = t.split(/\n/).map(function (s) { return s.replace(/[*]/g, "").trim(); }).filter(Boolean);
       for (var i = lines.length - 1; i >= 0; i--) {
