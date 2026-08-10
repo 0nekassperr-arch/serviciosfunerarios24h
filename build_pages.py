@@ -438,7 +438,8 @@ def run(g):
                 crumbs_html(px, [("Inicio",""),(h1, route)]) +
                 '<section class="section"><div class="container prose">' + prose_html + '</div></section>')
         page(route, title, desc, "aviso legal, privacidad, cookies, "+BRAND, body,
-             [org_schema(), breadcrumb([("Inicio",""),(h1,route)])])
+             [org_schema(), breadcrumb([("Inicio",""),(h1,route)])],
+             robots="noindex, follow")
         routes.append(route)
 
     aviso = f'''
@@ -544,4 +545,35 @@ def run(g):
 
     with open(os.path.join(OUT,"CNAME"),"w",encoding="utf-8") as f: f.write("serviciosfunerarios24h.es\n")
 
-    print(f"Total rutas: {len(routes)}  ->  sitemap.xml, robots.txt y CNAME generados.")
+    # ---- FEED RSS (blog) ----
+    import email.utils, datetime as _dt
+    def rfc822(datestr):
+        try:
+            d = _dt.datetime.strptime(datestr, "%Y-%m-%d").replace(hour=9, tzinfo=_dt.timezone.utc)
+        except Exception:
+            d = _dt.datetime.now(_dt.timezone.utc)
+        return email.utils.format_datetime(d)
+    def esc(s):
+        return (s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;"))
+    items = []
+    for p in BLOG_POSTS:
+        link = f"{BASE_URL}/blog/{p['slug']}/"
+        items.append(
+            "    <item>\n"
+            f"      <title>{esc(p['title'])}</title>\n"
+            f"      <link>{link}</link>\n"
+            f"      <guid isPermaLink=\"true\">{link}</guid>\n"
+            f"      <pubDate>{rfc822(p['date'])}</pubDate>\n"
+            f"      <description>{esc(p['description'])}</description>\n"
+            "    </item>")
+    feed = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<rss version="2.0"><channel>\n'
+            f"  <title>Blog · {SITE_NAME}</title>\n"
+            f"  <link>{BASE_URL}/blog/</link>\n"
+            f"  <description>Guías y consejos funerarios en Móstoles y el sur de Madrid.</description>\n"
+            "  <language>es-ES</language>\n"
+            f"  <lastBuildDate>{email.utils.format_datetime(_dt.datetime.now(_dt.timezone.utc))}</lastBuildDate>\n"
+            + "\n".join(items) + "\n</channel></rss>\n")
+    with open(os.path.join(OUT,"feed.xml"),"w",encoding="utf-8") as f: f.write(feed)
+
+    print(f"Total rutas: {len(routes)}  ->  sitemap.xml, robots.txt, feed.xml y CNAME generados.")

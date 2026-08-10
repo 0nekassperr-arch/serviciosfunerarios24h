@@ -88,7 +88,7 @@ FAVICON = ("data:image/svg+xml,"
     "%3Crect width='64' height='64' rx='14' fill='%23faf7f1'/%3E"
     "%3Ctext x='32' y='44' font-size='40' text-anchor='middle' fill='%23c2a568'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E")
 
-def head(route, title, description, keywords, schema_blocks, og_image="assets/hero-serenidad.jpg", og_type="website"):
+def head(route, title, description, keywords, schema_blocks, og_image="assets/hero-serenidad.jpg", og_type="website", robots="index, follow, max-image-preview:large"):
     prefix = prefix_for(route)
     canonical = BASE_URL + "/" + route
     img_abs = BASE_URL + "/" + og_image
@@ -105,10 +105,11 @@ def head(route, title, description, keywords, schema_blocks, og_image="assets/he
   <title>{title}</title>
   <meta name="description" content="{description}" />
   <meta name="keywords" content="{keywords}" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="robots" content="{robots}" />
   <meta name="author" content="{BRAND}" />
   <meta name="theme-color" content="#c2a568" />{gsc}
   <link rel="canonical" href="{canonical}" />
+  <link rel="alternate" type="application/rss+xml" title="Blog · {SITE_NAME}" href="{BASE_URL}/feed.xml" />
   <link rel="icon" href="{prefix}favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="{prefix}assets/apple-touch-icon.png" />
@@ -251,8 +252,8 @@ def chat_and_scripts(route):
 </html>
 """
 
-def page(route, title, description, keywords, body, schema_blocks, og_image="assets/hero-serenidad.jpg", og_type="website"):
-    html = head(route, title, description, keywords, schema_blocks, og_image, og_type)
+def page(route, title, description, keywords, body, schema_blocks, og_image="assets/hero-serenidad.jpg", og_type="website", robots="index, follow, max-image-preview:large"):
+    html = head(route, title, description, keywords, schema_blocks, og_image, og_type, robots)
     html += header(route)
     html += '  <main id="contenido">\n' + body + '\n  </main>\n'
     html += footer(route)
