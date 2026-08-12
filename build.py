@@ -57,6 +57,21 @@ ZONES = [
      "landmarks":"el centro urbano, las urbanizaciones residenciales de reciente construcción y su entorno familiar",
      "intro":"En Arroyomolinos ofrecemos un servicio funerario cercano las 24 horas. Coordinamos el traslado desde el domicilio, hospital o residencia y nos encargamos de todos los preparativos y trámites.",
      "extra":"Arroyomolinos ha crecido mucho en los últimos años; damos un servicio a medida de sus familias, con la calidez de lo local y la seriedad de un equipo profesional."},
+    {"slug":"villaviciosa-de-odon","name":"Villaviciosa de Odón","home_clone":False,
+     "hero_sub":"Servicios funerarios 24 horas en Villaviciosa de Odón, con cercanía y precios transparentes.",
+     "landmarks":"el casco urbano, las urbanizaciones residenciales, el cementerio municipal y su entorno tranquilo",
+     "intro":"En Villaviciosa de Odón acompañamos a las familias las 24 horas, ya sea un fallecimiento en el domicilio, en una residencia o en un hospital de la zona. Coordinamos el traslado y todos los preparativos con rapidez y respeto.",
+     "extra":"Villaviciosa de Odón es un municipio tranquilo y familiar; ofrecemos un servicio a su medida, cercano y sin sorpresas en el precio."},
+    {"slug":"madrid","name":"Madrid","home_clone":False,
+     "hero_sub":"Servicios funerarios 24 horas en Madrid capital, con atención inmediata y tarifas claras.",
+     "landmarks":"los grandes hospitales (La Paz, Gregorio Marañón, 12 de Octubre, Clínico San Carlos), los tanatorios de la M-30 y Sur, y todos los distritos de la ciudad",
+     "intro":"En Madrid capital atendemos a las familias a cualquier hora del día. Si el fallecimiento se produce en uno de los grandes hospitales, en el domicilio o en una residencia, coordinamos el traslado y la organización completa del servicio.",
+     "extra":"Madrid es una ciudad grande y diversa; ofrecemos un trato cercano y humano, con precios transparentes, en cualquier distrito."},
+    {"slug":"toledo","name":"Toledo","home_clone":False,
+     "hero_sub":"Servicios funerarios 24 horas en Toledo y su comarca, cercanos y con precios transparentes.",
+     "landmarks":"el Hospital Universitario de Toledo, el casco histórico, los barrios de Santa Bárbara, Buenavista y el Polígono, y los pueblos de alrededor",
+     "intro":"En Toledo y su comarca ofrecemos atención funeraria las 24 horas. Coordinamos el traslado desde el Hospital Universitario de Toledo, el domicilio o residencias, y nos encargamos de todos los preparativos y trámites.",
+     "extra":"Toledo une historia y cercanía; damos un servicio respetuoso con la tradición de cada familia y transparente en el precio."},
 ]
 ZONE_NAMES = [z["name"] for z in ZONES]
 

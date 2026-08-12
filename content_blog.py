@@ -272,4 +272,191 @@ BLOG_POSTS = [
 <p>Sabemos que esta lista puede resultar abrumadora. Por eso, además del servicio funerario, le orientamos sobre cada trámite y le indicamos dónde y cómo realizarlo. Si tiene dudas sobre alguna gestión en Móstoles o el sur de Madrid, llámenos: le ayudamos a ponerlo todo en orden.</p>
 """
 },
+{
+ "slug":"ayudas-gastos-funerarios",
+ "title":"Ayudas para gastos funerarios: subvenciones y cómo solicitarlas",
+ "description":"Guía de ayudas para gastos funerarios en Madrid y Toledo: auxilio por defunción de la Seguridad Social, ayudas de servicios sociales del ayuntamiento, mutualidades y cómo solicitarlas.",
+ "category":"Ayudas",
+ "date":"2026-08-11","date_h":"11 de agosto de 2026",
+ "image":"assets/blog-ayudas.jpg",
+ "image_alt":"Documentos, calculadora y bolígrafo sobre una mesa con luz cálida",
+ "keywords":"ayudas gastos funerarios, auxilio por defunción, subvención funeral, ayudas servicios sociales entierro, funeral sin dinero",
+ "body": f"""
+<p class="prose-lead">Afrontar un fallecimiento sin recursos suficientes es una de las mayores angustias para muchas familias. La buena noticia es que existen varias ayudas y prestaciones para gastos funerarios. Le explicamos cuáles hay y cómo solicitarlas, paso a paso.</p>
+
+<h2>1. Auxilio por defunción (Seguridad Social)</h2>
+<p>Es una prestación de pago único destinada a cubrir los gastos del sepelio a quien los haya abonado (normalmente un familiar). Su cuantía es modesta, pero es compatible con otras ayudas. Se solicita en el Instituto Nacional de la Seguridad Social (INSS) presentando el certificado de defunción y la factura del servicio funerario.</p>
+{_CTA}
+
+<h2>2. Ayudas de emergencia de los servicios sociales</h2>
+<p>Muchos ayuntamientos y comunidades autónomas cuentan con <strong>ayudas de emergencia social</strong> para familias sin recursos que deben afrontar un entierro o incineración. Se tramitan en los servicios sociales municipales y suelen requerir acreditar la situación económica. En municipios como Móstoles, Alcorcón o Fuenlabrada conviene preguntar directamente en el ayuntamiento.</p>
+
+<h2>3. Mutualidades, convenios y seguros</h2>
+<ul>
+  <li><strong>Seguro de decesos:</strong> si la persona tenía póliza, cubre el servicio (revise siempre qué incluye).</li>
+  <li><strong>Mutualidades</strong> de determinados colectivos (funcionarios, gremios) que contemplan ayudas por fallecimiento.</li>
+  <li><strong>Convenios de empresa</strong> o seguros de vida que incluyan prestación por defunción.</li>
+</ul>
+
+<h2>4. Prestaciones asociadas</h2>
+<p>Además del auxilio por defunción, los familiares pueden tener derecho a la <strong>pensión de viudedad y orfandad</strong>, que no cubren el funeral pero sí ayudan a la economía familiar posterior. Se solicitan también en la Seguridad Social.</p>
+
+<h2>Cómo lo gestionamos por usted</h2>
+<p>Sabemos que, en pleno duelo, moverse entre administraciones es agotador. Le orientamos sobre a qué ayudas puede optar según su situación, le indicamos qué documentos necesita y le ofrecemos un <strong>servicio ajustado a su presupuesto</strong> con opciones de financiación si lo necesita. Nadie debería renunciar a una despedida digna por dinero.</p>
+
+<p>Si necesita ayuda con los gastos de un servicio funerario en Madrid, Toledo o el sur de Madrid, llámenos: le informamos con claridad y sin compromiso.</p>
+"""
+},
+{
+ "slug":"cuanto-tarda-una-incineracion",
+ "title":"¿Cuánto tarda una incineración? El proceso paso a paso",
+ "description":"Cuánto tarda una incineración, cómo es el proceso paso a paso y cuándo se pueden recoger las cenizas. Resolvemos las dudas más frecuentes con claridad y respeto.",
+ "category":"Orientación",
+ "date":"2026-08-08","date_h":"8 de agosto de 2026",
+ "image":"assets/blog-tiempos.jpg",
+ "image_alt":"Una flor blanca y una vela encendida bajo luz cálida de la mañana",
+ "keywords":"cuánto tarda una incineración, proceso incineración, cuándo se recogen las cenizas, cremación tiempo",
+ "body": f"""
+<p class="prose-lead">Cuando una familia opta por la incineración, surgen dudas muy naturales: ¿cuánto tarda?, ¿cómo es el proceso?, ¿cuándo podremos recoger las cenizas? Se lo explicamos con delicadeza para que sepa qué esperar en cada momento.</p>
+
+<h2>¿Cuánto dura el proceso de cremación?</h2>
+<p>La cremación propiamente dicha suele durar entre <strong>1,5 y 3 horas</strong>, según diversos factores. Después se deja enfriar y se procesan los restos, de modo que la <strong>entrega de las cenizas</strong> se realiza habitualmente el <strong>mismo día o al día siguiente</strong>.</p>
+{_CTA}
+
+<h2>El proceso, paso a paso</h2>
+<ol>
+  <li><strong>Recogida y traslado</strong> del fallecido al tanatorio.</li>
+  <li><strong>Preparación</strong> (tanatopraxia o tanatoestética, si se desea).</li>
+  <li><strong>Velatorio</strong>, si la familia lo desea, para la despedida.</li>
+  <li><strong>Ceremonia</strong> religiosa o civil, opcional.</li>
+  <li><strong>Cremación</strong> en el crematorio autorizado.</li>
+  <li><strong>Entrega de las cenizas</strong> en la urna elegida, con su documentación.</li>
+</ol>
+
+<h2>¿Cuándo se pueden recoger las cenizas?</h2>
+<p>Por lo general, en <strong>24 horas</strong> desde la cremación. Le entregamos las cenizas junto con el certificado correspondiente, necesario si más adelante desea inhumarlas, trasladarlas o esparcirlas.</p>
+
+<h2>Factores que influyen en los tiempos</h2>
+<ul>
+  <li>La disponibilidad del crematorio y la agenda del día.</li>
+  <li>Si se realiza velatorio y ceremonia previos (lo habitual).</li>
+  <li>Los trámites y licencias (de los que nos encargamos nosotros).</li>
+</ul>
+
+<h2>¿Qué se puede hacer con las cenizas?</h2>
+<p>Puede conservarlas en casa, depositarlas en un columbario, inhumarlas en una sepultura o esparcirlas en un lugar significativo (respetando la normativa). Le orientamos sobre todas las opciones sin ninguna prisa.</p>
+
+<p>Si está considerando la incineración en Madrid, Toledo o el sur de Madrid y quiere conocer tiempos y precio, llámenos: le acompañamos en cada paso.</p>
+"""
+},
+{
+ "slug":"tanatorio-velatorio-que-esperar",
+ "title":"El velatorio en el tanatorio: cómo funciona y qué esperar",
+ "description":"Qué es un tanatorio, cómo funciona un velatorio, cuánto dura, horarios y qué esperar. Una guía serena para acompañar a las familias en la despedida.",
+ "category":"Orientación",
+ "date":"2026-08-06","date_h":"6 de agosto de 2026",
+ "image":"assets/blog-tanatorio.jpg",
+ "image_alt":"Sala serena con luz cálida y un jarrón con flores blancas",
+ "keywords":"qué es un tanatorio, cómo funciona un velatorio, cuánto dura un velatorio, tanatorio horarios",
+ "body": f"""
+<p class="prose-lead">El velatorio es el momento en que familiares y amigos se reúnen para despedir al ser querido. Si nunca ha organizado uno, es normal tener dudas sobre cómo funciona. Se lo explicamos con calma.</p>
+
+<h2>¿Qué es un tanatorio?</h2>
+<p>Un tanatorio es la instalación donde se realiza el velatorio y se custodia al fallecido hasta la incineración o el entierro. Dispone de <strong>salas privadas</strong> para cada familia, zonas de descanso y, a menudo, cafetería. Muchos cuentan también con crematorio propio.</p>
+{_CTA}
+
+<h2>Cómo es un velatorio</h2>
+<p>La familia dispone de una sala donde recibir a quienes acuden a dar el pésame. Suele haber una zona con el féretro (con posibilidad de sala acristalada) y otra de asientos para acompañar. Es un espacio para el recogimiento, el consuelo y los recuerdos compartidos.</p>
+
+<h2>¿Cuánto dura y qué horarios tiene?</h2>
+<p>En España, el velatorio dura habitualmente <strong>entre 12 y 24 horas</strong>, hasta el momento de la ceremonia y la incineración o entierro. Los tanatorios suelen permitir el acompañamiento durante amplias franjas horarias; nosotros nos adaptamos a lo que cada familia necesite.</p>
+
+<h2>Qué esperar y cómo prepararse</h2>
+<ul>
+  <li>No hay un protocolo rígido: cada familia vive la despedida a su manera.</li>
+  <li>Puede preparar <strong>fotografías, música o unas palabras</strong> si lo desea.</li>
+  <li>Es habitual recibir flores y mensajes de condolencia.</li>
+  <li>Nosotros coordinamos la sala, los tiempos y todos los detalles.</li>
+</ul>
+
+<h2>La ceremonia de despedida</h2>
+<p>Tras el velatorio se celebra la ceremonia, que puede ser <strong>religiosa</strong> (de cualquier confesión) o <strong>civil</strong>, adaptada a los valores de la familia. Le ayudamos a personalizarla para que sea un homenaje sentido.</p>
+
+<p>Si necesita organizar un velatorio en Madrid, Toledo o el sur de Madrid, llámenos: le acompañamos con cercanía y respeto en cada detalle.</p>
+"""
+},
+{
+ "slug":"repatriacion-de-fallecidos",
+ "title":"Repatriación de un fallecido: trámites, tiempos y costes",
+ "description":"Repatriación de fallecidos desde o hacia España: qué es, qué trámites y documentación se necesitan, cuánto tarda y cuánto cuesta. Le acompañamos en todo el proceso.",
+ "category":"Trámites",
+ "date":"2026-08-04","date_h":"4 de agosto de 2026",
+ "image":"assets/blog-repatriacion.jpg",
+ "image_alt":"Vista serena de nubes al atardecer desde la ventanilla de un avión",
+ "keywords":"repatriación de fallecidos, repatriación funeraria, trasladar un fallecido al extranjero, coste repatriación",
+ "body": f"""
+<p class="prose-lead">Cuando un ser querido fallece lejos de casa —en otro país o en otra comunidad—, la familia necesita trasladarlo para poder despedirse en su tierra. Es la repatriación, un proceso muy regulado que gestionamos íntegramente para que usted no tenga que preocuparse.</p>
+
+<h2>¿Qué es la repatriación?</h2>
+<p>Es el traslado del fallecido desde el lugar del fallecimiento hasta su destino final, ya sea <strong>internacional</strong> (entre países) o <strong>nacional</strong> (entre comunidades). Requiere un féretro especial homologado, documentación específica y coordinación con consulados y compañías de transporte.</p>
+{_CTA}
+
+<h2>Trámites y documentación</h2>
+<ul>
+  <li>Certificado de defunción y, en su caso, traducción jurada.</li>
+  <li><strong>Certificado de embalsamamiento</strong> (obligatorio para traslados largos).</li>
+  <li>Autorización sanitaria de traslado del cuerpo.</li>
+  <li>Documentación consular del país de origen o destino.</li>
+  <li>Féretro homologado para transporte internacional.</li>
+</ul>
+<p>Parece complejo, pero de todo esto nos ocupamos nosotros: usted solo tiene que decirnos el destino.</p>
+
+<h2>¿Cuánto tarda?</h2>
+<p>Depende del país y de la obtención de la documentación consular, pero suele oscilar entre <strong>3 y 7 días</strong>. En traslados nacionales, el proceso es bastante más rápido.</p>
+
+<h2>¿Cuánto cuesta?</h2>
+<p>El coste varía según el destino, la distancia y el medio de transporte. Los <strong>traslados nacionales</strong> parten desde unos 900 €, y las repatriaciones internacionales se presupuestan a medida. Si la persona tenía <strong>seguro de decesos con cobertura de repatriación</strong>, gran parte del coste puede estar cubierto: lo revisamos por usted.</p>
+
+<h2>Le acompañamos de principio a fin</h2>
+<p>La repatriación es, quizá, el trámite más delicado del sector. Coordinamos cada gestión —origen, transporte y destino— con el máximo cuidado y respeto. Si necesita repatriar a un ser querido desde o hacia Madrid, Toledo o el sur de Madrid, llámenos las 24 horas.</p>
+"""
+},
+{
+ "slug":"como-elegir-funeraria",
+ "title":"Cómo elegir funeraria: 7 claves para acertar y no pagar de más",
+ "description":"Cómo elegir funeraria con acierto: libertad de elección, presupuesto por escrito, servicios incluidos, trato humano y más. 7 claves para decidir con tranquilidad y sin pagar de más.",
+ "category":"Consejos",
+ "date":"2026-08-01","date_h":"1 de agosto de 2026",
+ "image":"assets/blog-elegir.jpg",
+ "image_alt":"Manos de dos personas conversando junto a unos documentos, con luz cálida",
+ "keywords":"cómo elegir funeraria, elegir funeraria libertad, presupuesto funerario, no pagar de más funeral",
+ "body": f"""
+<p class="prose-lead">En un momento de dolor, elegir funeraria puede parecer una decisión difícil y precipitada. No tiene por qué serlo. Estas 7 claves le ayudarán a decidir con tranquilidad y a evitar pagar de más.</p>
+
+<h2>1. Recuerde: tiene libertad de elección</h2>
+<p>Aunque el fallecimiento se produzca en un hospital o residencia, <strong>usted elige la funeraria</strong> que quiera. Nadie puede imponerle una, y si tiene seguro de decesos, puede elegirnos aunque la póliza sea de otra compañía.</p>
+{_CTA}
+
+<h2>2. Pida siempre un presupuesto por escrito</h2>
+<p>Un servicio serio le entrega un <strong>presupuesto cerrado y desglosado</strong> antes de contratar. Desconfíe de quien no lo detalla o presiona para decidir rápido.</p>
+
+<h2>3. Compruebe qué está incluido (y qué no)</h2>
+<p>Revise si el precio incluye traslado, féretro, trámites, tasas y crematorio o sepultura. A veces un precio "gancho" bajo esconde extras que disparan la factura final.</p>
+
+<h2>4. Valore el trato humano</h2>
+<p>Más allá del precio, fíjese en cómo le atienden: <strong>cercanía, paciencia y respeto</strong>. Es un momento delicado y merece acompañamiento, no prisa comercial.</p>
+
+<h2>5. Mire la experiencia y las reseñas</h2>
+<p>Las opiniones de otras familias son una buena señal de la calidad del servicio. La experiencia y el arraigo local también dan tranquilidad.</p>
+
+<h2>6. Pregunte por opciones si no hay seguro</h2>
+<p>Si no hay seguro de decesos, una buena funeraria le ofrece <strong>soluciones ajustadas y financiación</strong>, sin que el coste sea un problema añadido.</p>
+
+<h2>7. No se deje presionar</h2>
+<p>Tómese el tiempo necesario. Una funeraria de confianza le informa y le acompaña, pero <strong>respeta siempre su decisión</strong>.</p>
+
+<h2>En resumen</h2>
+<p>Elegir bien es informarse con calma, exigir transparencia y buscar un trato humano. Si quiere un presupuesto claro y sin compromiso en Madrid, Toledo o el sur de Madrid, llámenos: le ayudamos a decidir con tranquilidad.</p>
+"""
+},
 ]

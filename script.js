@@ -20,6 +20,9 @@
     if (path.indexOf("/leganes") !== -1) { return "Leganés"; }
     if (path.indexOf("/getafe") !== -1) { return "Getafe"; }
     if (path.indexOf("/arroyomolinos") !== -1) { return "Arroyomolinos"; }
+    if (path.indexOf("/villaviciosa") !== -1) { return "Villaviciosa de Odón"; }
+    if (path.indexOf("/toledo") !== -1) { return "Toledo"; }
+    if (path.indexOf("/madrid") !== -1) { return "Madrid"; }
     return "Madrid Sur";
   }
   var ZONA = getZona();
