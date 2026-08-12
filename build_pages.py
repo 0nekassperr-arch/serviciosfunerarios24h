@@ -24,6 +24,16 @@ def run(g):
 
     routes = [""]  # home ya generada
 
+    # Ciudades con página específica "Tanatorio en [ciudad]" (alta demanda en Search Console)
+    TANATORIO = [
+        {"slug":"mostoles","name":"Móstoles","hosp":"el Hospital Universitario de Móstoles","barrios":"El Soto, Parque Coimbra o Las Cumbres"},
+        {"slug":"fuenlabrada","name":"Fuenlabrada","hosp":"el Hospital Universitario de Fuenlabrada","barrios":"Loranca, El Vivero o La Serna"},
+        {"slug":"getafe","name":"Getafe","hosp":"el Hospital Universitario de Getafe","barrios":"Sector III, Las Margaritas o Getafe Norte"},
+        {"slug":"alcorcon","name":"Alcorcón","hosp":"el Hospital Universitario Fundación Alcorcón","barrios":"Parque Lisboa, San José de Valderas o Las Retamas"},
+        {"slug":"leganes","name":"Leganés","hosp":"el Hospital Severo Ochoa","barrios":"Zarzaquemada, Leganés Norte o San Nicasio"},
+        {"slug":"madrid","name":"Madrid","hosp":"los grandes hospitales de la ciudad","barrios":"todos los distritos"},
+    ]
+
     # ============================== SERVICIOS ==============================
     px = prefix_for("servicios/")
     price_grid = '''<section class="section" aria-labelledby="precios-title">
@@ -165,6 +175,13 @@ def run(g):
         <p class="section__subtitle">Damos servicio en los principales municipios del sur de Madrid. Elija su localidad para conocer cómo le atendemos en su zona.</p>
         <div class="post-grid">''' + cards + '''</div>
       </div></section>''' +
+      ('<section class="section section--alt"><div class="container" style="text-align:center">'
+       '<span class="section__eyebrow">Tanatorios por ciudad</span>'
+       '<h2 class="section__title">Velatorio y tanatorio en su localidad</h2>'
+       '<p class="section__subtitle">Coordinamos la sala de velatorio y todo el servicio en el tanatorio de su ciudad.</p>'
+       '<p style="line-height:2.4">'
+       + " · ".join(f'<a href="{L(px, "tanatorio-"+c["slug"]+"/")}">Tanatorio en {c["name"]}</a>' for c in TANATORIO)
+       + '</p></div></section>') +
       cta_band(px)
     )
     page("zonas/",
@@ -258,6 +275,77 @@ def run(g):
                "priceRange":"€€"},
               faq_schema(zfaq)],
              og_image="assets/camino-sereno.jpg")
+        routes.append(route)
+
+    # ============================== TANATORIO EN [CIUDAD] ==============================
+    for c in TANATORIO:
+        route = f"tanatorio-{c['slug']}/"
+        px = prefix_for(route)
+        name = c["name"]
+        tfaq = [
+          (f"¿Dónde está el tanatorio de {name}?", f"En {name} existen instalaciones de tanatorio donde velar a su ser querido. Coordinamos la sala disponible que mejor se adapte a su familia; llámenos al {PHONE_DISP} y le informamos de las opciones y la disponibilidad al momento."),
+          (f"¿Cuánto cuesta un velatorio en {name}?", "Depende de la sala, la duración y las prestaciones. Le ofrecemos un presupuesto cerrado y transparente; la incineración parte desde 1.500 €, siempre sin cargos ocultos."),
+          (f"¿Atienden las 24 horas en {name}?", f"Sí. En {name} estamos disponibles las 24 horas, los 365 días del año. Ante un fallecimiento, le atendemos y coordinamos el traslado de inmediato."),
+          ("¿Puedo elegir el tanatorio?", "Sí. Tiene total libertad para elegir la funeraria y el tanatorio, tanto si el fallecimiento se produce en el hospital como en una residencia o en el domicilio."),
+        ]
+        urgency = f'''<section class="urgency urgency--photo">
+      <div class="container urgency__inner">
+        <p class="urgency__flag">Asistencia inmediata en {name} · 24h</p>
+        <h2 class="urgency__title">¿Necesita un tanatorio en {name} ahora?</h2>
+        <p class="urgency__text">Le atendemos de inmediato: coordinamos la recogida, la sala de velatorio y todos los preparativos en {name}. Estamos disponibles a cualquier hora del día.</p>
+        <a class="btn-call" href="tel:{PHONE_TEL}" data-track="urgency-call"><span class="btn-call__icon" aria-hidden="true">📞</span><span class="btn-call__label"><strong>LLAMAR AHORA · 24H</strong><small>{PHONE_DISP} — Le atendemos ya</small></span></a>
+        <p class="urgency__note">Llamada de orientación gratuita · También le devolvemos la llamada</p>
+      </div>
+    </section>'''
+        info = f'''<section class="section" aria-labelledby="t-title">
+      <div class="container">
+        <span class="section__eyebrow">Velatorio en {name}</span>
+        <h2 id="t-title" class="section__title">Todo el servicio de tanatorio en {name}</h2>
+        <p class="section__subtitle">El tanatorio es el lugar donde las familias velan y se despiden. Nos encargamos de reservar y coordinar la sala, la preparación, la ceremonia y la incineración o el entierro, para que usted solo tenga que despedirse.</p>
+        <div class="grid-3">
+          <article class="card"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div><h3 class="card__title">Salas de velatorio</h3><p class="card__text">Coordinamos una sala digna y acogedora en {name}, con horarios flexibles para que la familia se despida con calma.</p></article>
+          <article class="card"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3 class="card__title">Atención 24 horas</h3><p class="card__text">Recogida y traslado desde {c['hosp']}, el domicilio o residencias de {name}, a cualquier hora.</p></article>
+          <article class="card"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a1 1 0 0 1 1 1v1h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h4"/></svg></div><h3 class="card__title">Trámites incluidos</h3><p class="card__text">Incineración e inhumación con certificado, Registro Civil y licencias gestionados por nosotros.</p></article>
+        </div>
+      </div>
+    </section>'''
+        media = f'''<section class="section section--alt">
+      <div class="container media">
+        <div class="media__img"><img src="{px}assets/blog-tanatorio.jpg" alt="Sala de velatorio serena con luz cálida y flores blancas en {name}" loading="lazy" /></div>
+        <div class="media__body">
+          <span class="section__eyebrow" style="text-align:left">Cercanos en {name}</span>
+          <h2>Un velatorio sereno y a su medida</h2>
+          <p>En {name}, acompañamos a las familias en barrios como {c['barrios']} y en todo el municipio. Nos ocupamos de cada detalle del tanatorio con respeto y sin prisas, adaptándonos a lo que cada familia necesita.</p>
+          <ul class="media__list">
+            <li>Reserva y coordinación de la sala de velatorio</li>
+            <li>Tanatoestética y preparación</li>
+            <li>Ceremonia religiosa o civil</li>
+            <li>Incineración o inhumación y trámites</li>
+          </ul>
+          <p style="margin-top:14px"><a href="{L(px, c['slug']+'/')}">Ver servicios funerarios en {name} →</a><br>
+          <a href="{L(px,'blog/tanatorio-velatorio-que-esperar/')}">Cómo funciona un velatorio: qué esperar →</a></p>
+        </div>
+      </div>
+    </section>'''
+        body = (
+          page_hero(f"Tanatorio en {name} · 24 horas",
+                    f"Coordinamos el velatorio y todo el servicio funerario en {name}: salas de tanatorio, trato cercano y precios transparentes.") +
+          urgency + info + media +
+          faq_block(f"Preguntas frecuentes sobre el tanatorio en {name}", tfaq) +
+          lead_form(px, f"Solicite el velatorio o tanatorio en {name}",
+                    f"Déjenos sus datos y le contactamos en unos minutos para coordinar el tanatorio en {name}.")
+        )
+        page(route,
+             f"Tanatorio en {name} 24h | Velatorio y Servicios Funerarios",
+             f"Tanatorio en {name} 24 horas: coordinamos sala de velatorio, incineración desde 1.500€, trámites y traslado. Atención inmediata y precios transparentes en {name}.",
+             f"tanatorio {name}, tanatorio de {name}, velatorio {name}, funeraria {name}, sala velatorio {name}",
+             body,
+             [org_schema(),
+              breadcrumb([("Inicio",""),("Zonas","zonas/"),(f"Tanatorio en {name}", route)]),
+              {"@context":"https://schema.org","@type":"FuneralHome","name":f"{SITE_NAME} · Tanatorio en {name}",
+               "areaServed":{"@type":"City","name":name},"telephone":PHONE_TEL,"url":BASE_URL+"/"+route,"priceRange":"€€"},
+              faq_schema(tfaq)],
+             og_image="assets/blog-tanatorio.jpg")
         routes.append(route)
 
     # ============================== NECESITO AYUDA ==============================
