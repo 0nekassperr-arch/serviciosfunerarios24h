@@ -22,6 +22,8 @@
     if (path.indexOf("/arroyomolinos") !== -1) { return "Arroyomolinos"; }
     if (path.indexOf("/villaviciosa") !== -1) { return "Villaviciosa de Odón"; }
     if (path.indexOf("/toledo") !== -1) { return "Toledo"; }
+    if (path.indexOf("/parla") !== -1) { return "Parla"; }
+    if (path.indexOf("/pinto") !== -1) { return "Pinto"; }
     if (path.indexOf("/madrid") !== -1) { return "Madrid"; }
     return "Madrid Sur";
   }

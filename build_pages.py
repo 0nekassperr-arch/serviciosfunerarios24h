@@ -32,6 +32,21 @@ def run(g):
         {"slug":"alcorcon","name":"Alcorcón","hosp":"el Hospital Universitario Fundación Alcorcón","barrios":"Parque Lisboa, San José de Valderas o Las Retamas"},
         {"slug":"leganes","name":"Leganés","hosp":"el Hospital Severo Ochoa","barrios":"Zarzaquemada, Leganés Norte o San Nicasio"},
         {"slug":"madrid","name":"Madrid","hosp":"los grandes hospitales de la ciudad","barrios":"todos los distritos"},
+        {"slug":"villaviciosa-de-odon","name":"Villaviciosa de Odón","hosp":"los hospitales de Alcorcón y Móstoles, muy próximos","barrios":"el casco urbano y las urbanizaciones residenciales"},
+        {"slug":"arroyomolinos","name":"Arroyomolinos","hosp":"los hospitales cercanos de Móstoles y Alcorcón","barrios":"el centro y las urbanizaciones"},
+        {"slug":"toledo","name":"Toledo","hosp":"el Hospital Universitario de Toledo","barrios":"Santa Bárbara, Buenavista o el Polígono"},
+        {"slug":"parla","name":"Parla","hosp":"el Hospital Infanta Cristina","barrios":"el centro y Parla Este"},
+        {"slug":"pinto","name":"Pinto","hosp":"el Hospital de Getafe, muy próximo","barrios":"el centro y las nuevas urbanizaciones"},
+    ]
+
+    PRECIOS = [
+        {"slug":"madrid","name":"Madrid"},
+        {"slug":"mostoles","name":"Móstoles"},
+        {"slug":"fuenlabrada","name":"Fuenlabrada"},
+        {"slug":"getafe","name":"Getafe"},
+        {"slug":"alcorcon","name":"Alcorcón"},
+        {"slug":"leganes","name":"Leganés"},
+        {"slug":"toledo","name":"Toledo"},
     ]
 
     # ============================== SERVICIOS ==============================
@@ -181,6 +196,13 @@ def run(g):
        '<p class="section__subtitle">Coordinamos la sala de velatorio y todo el servicio en el tanatorio de su ciudad.</p>'
        '<p style="line-height:2.4">'
        + " · ".join(f'<a href="{L(px, "tanatorio-"+c["slug"]+"/")}">Tanatorio en {c["name"]}</a>' for c in TANATORIO)
+       + '</p></div></section>') +
+      ('<section class="section"><div class="container" style="text-align:center">'
+       '<span class="section__eyebrow">Precios por ciudad</span>'
+       '<h2 class="section__title">Precios funerarios por localidad</h2>'
+       '<p class="section__subtitle">Tarifas claras de incineración, entierro y traslados en su ciudad.</p>'
+       '<p style="line-height:2.4">'
+       + " · ".join(f'<a href="{L(px, "precios-funeraria-"+c["slug"]+"/")}">Precios en {c["name"]}</a>' for c in PRECIOS)
        + '</p></div></section>') +
       cta_band(px)
     )
@@ -346,6 +368,53 @@ def run(g):
                "areaServed":{"@type":"City","name":name},"telephone":PHONE_TEL,"url":BASE_URL+"/"+route,"priceRange":"€€"},
               faq_schema(tfaq)],
              og_image="assets/blog-tanatorio.jpg")
+        routes.append(route)
+
+    # ============================== PRECIOS FUNERARIOS POR CIUDAD ==============================
+    for c in PRECIOS:
+        route = f"precios-funeraria-{c['slug']}/"
+        px = prefix_for(route); name = c["name"]
+        pgrid = f'''<section class="section"><div class="container">
+          <span class="section__eyebrow">Tarifas orientativas en {name}</span>
+          <h2 class="section__title">Precios funerarios en {name}</h2>
+          <p class="section__subtitle">Presupuesto cerrado y por escrito, sin cargos ocultos. Estas son las tarifas orientativas para {name}.</p>
+          <div class="price-grid">
+            <div class="price-card price-card--featured"><h3>Incineración</h3><p class="price-card__price">1.500€ <small>desde · IVA incluido</small></p><ul><li>Recogida y traslado</li><li>Féretro para incineración</li><li>Trámites y licencia</li><li>Coordinación del crematorio</li><li>Urna básica</li></ul><a class="btn btn--primary btn--block" href="#formulario" data-track="precio-inci">Pedir presupuesto</a></div>
+            <div class="price-card"><h3>Inhumación</h3><p class="price-card__price">2.900€ <small>desde · sin sepultura</small></p><ul><li>Féretro de inhumación</li><li>Coche fúnebre</li><li>Trámites y licencia</li><li>Coordinación con el cementerio</li></ul><a class="btn btn--ghost btn--block" href="#formulario" data-track="precio-inhu">Pedir presupuesto</a></div>
+            <div class="price-card"><h3>Traslado</h3><p class="price-card__price">900€ <small>desde · nacional</small></p><ul><li>Traslado a otra localidad</li><li>Repatriación (a medida)</li><li>Gestión documental</li><li>Coordinación puerta a puerta</li></ul><a class="btn btn--ghost btn--block" href="#formulario" data-track="precio-tras">Pedir presupuesto</a></div>
+          </div>
+          <p class="price-note">Precios orientativos. El importe final depende de las prestaciones y de las tasas de {name}. Le entregamos siempre el presupuesto por escrito antes de contratar.</p>
+        </div></section>'''
+        info = f'''<section class="section section--alt"><div class="container prose">
+          <h2>¿Qué influye en el precio de un funeral en {name}?</h2>
+          <p>El coste de un servicio funerario en {name} varía según el tipo de despedida (incineración o entierro) y las prestaciones elegidas. Los principales factores son:</p>
+          <ul>
+            <li><strong>Tipo de servicio:</strong> la incineración suele ser más económica que la inhumación, que requiere sepultura.</li>
+            <li><strong>Producto:</strong> féretro o urna, flores, esquelas y recordatorios.</li>
+            <li><strong>Tasas y terceros:</strong> crematorio, sala de velatorio y tasas del cementerio de {name}.</li>
+          </ul>
+          <h3>¿Y si no hay seguro de decesos?</h3>
+          <p>Es muy habitual. En {name} ofrecemos servicios ajustados y opciones de financiación para que el coste nunca sea un problema añadido. Además, le informamos de las posibles <a href="{L(px,'blog/ayudas-gastos-funerarios/')}">ayudas para gastos funerarios</a>.</p>
+        </div></section>'''
+        pfaq = [
+          (f"¿Cuánto cuesta una incineración en {name}?", "La incineración parte desde 1.500 €, con trámites incluidos y presupuesto cerrado por escrito."),
+          (f"¿Cuánto cuesta un entierro en {name}?", "La inhumación parte desde 2.900 € (sin contar la sepultura). Le detallamos cada concepto, sin cargos ocultos."),
+          (f"¿Hay ayudas para pagar el funeral en {name}?", "Sí: el auxilio por defunción de la Seguridad Social y ayudas de servicios sociales. Le orientamos sobre cuáles puede solicitar."),
+          ("¿Puedo pagar a plazos?", "Sí, ofrecemos opciones de financiación, especialmente para familias sin seguro de decesos."),
+        ]
+        body = (page_hero(f"Precios funerarios en {name}", f"Tarifas claras de incineración, entierro y traslados en {name}. Presupuesto por escrito y sin cargos ocultos.")
+                + pgrid + info + cta_band(px)
+                + faq_block(f"Preguntas sobre precios en {name}", pfaq)
+                + lead_form(px, f"Pida su presupuesto en {name}", f"Cuéntenos qué necesita y le preparamos un presupuesto claro para {name}, sin compromiso."))
+        page(route,
+             f"Precios Funerarios en {name} | Incineración desde 1.500€ y Entierro",
+             f"Precios funerarios en {name}: incineración desde 1.500€, inhumación desde 2.900€ y traslados. Presupuesto por escrito, sin cargos ocultos y con ayudas si las necesita.",
+             f"precios funeraria {name}, incineración {name} precio, coste entierro {name}, cuánto cuesta un funeral {name}",
+             body,
+             [org_schema(),
+              breadcrumb([("Inicio",""),("Zonas","zonas/"),(f"Precios en {name}", route)]),
+              {"@context":"https://schema.org","@type":"Service","name":f"Servicios funerarios en {name}","areaServed":{"@type":"City","name":name},"provider":{"@type":"FuneralHome","name":SITE_NAME},"offers":{"@type":"Offer","price":"1500","priceCurrency":"EUR"}},
+              faq_schema(pfaq)])
         routes.append(route)
 
     # ============================== NECESITO AYUDA ==============================

@@ -72,6 +72,16 @@ ZONES = [
      "landmarks":"el Hospital Universitario de Toledo, el casco histórico, los barrios de Santa Bárbara, Buenavista y el Polígono, y los pueblos de alrededor",
      "intro":"En Toledo y su comarca ofrecemos atención funeraria las 24 horas. Coordinamos el traslado desde el Hospital Universitario de Toledo, el domicilio o residencias, y nos encargamos de todos los preparativos y trámites.",
      "extra":"Toledo une historia y cercanía; damos un servicio respetuoso con la tradición de cada familia y transparente en el precio."},
+    {"slug":"parla","name":"Parla","home_clone":False,
+     "hero_sub":"Servicios funerarios 24 horas en Parla, cercanos y con precios transparentes.",
+     "landmarks":"el Hospital Infanta Cristina, el centro urbano y barrios como Parla Este",
+     "intro":"En Parla acompañamos a las familias las 24 horas, ya sea un fallecimiento en el domicilio, en una residencia o en el Hospital Infanta Cristina. Coordinamos el traslado y todos los preparativos con rapidez y respeto.",
+     "extra":"Parla es una ciudad joven y cercana; ofrecemos un servicio a su medida, humano y sin sorpresas en el precio."},
+    {"slug":"pinto","name":"Pinto","home_clone":False,
+     "hero_sub":"Servicios funerarios 24 horas en Pinto, con trato cercano y tarifas claras.",
+     "landmarks":"el centro urbano, el cementerio municipal y su entorno, con el Hospital de Getafe muy próximo",
+     "intro":"En Pinto ofrecemos atención funeraria las 24 horas. Coordinamos el traslado desde el domicilio, la residencia o el hospital, y nos encargamos de todos los preparativos y trámites.",
+     "extra":"Pinto combina tranquilidad y buena comunicación; damos un servicio profesional y transparente para sus familias."},
 ]
 ZONE_NAMES = [z["name"] for z in ZONES]
 
