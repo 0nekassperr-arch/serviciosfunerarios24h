@@ -31,7 +31,11 @@ YEAR       = datetime.date.today().year
 GSC_VERIFICATION = ""
 
 ZONES = [
-    {"slug":"mostoles","name":"Móstoles","home_clone":True},
+    {"slug":"mostoles","name":"Móstoles","home_clone":False,
+     "hero_sub":"Servicios funerarios 24 horas en Móstoles, con atención inmediata, trato cercano y precios transparentes.",
+     "landmarks":"el Hospital Universitario de Móstoles, el Tanatorio de Móstoles y barrios como El Soto, Parque Coimbra o Las Cumbres",
+     "intro":"En Móstoles acompañamos a las familias en cualquier circunstancia, ya sea un fallecimiento en el domicilio, en el Hospital Universitario de Móstoles o en una residencia. Coordinamos cada detalle para que usted solo tenga que ocuparse de despedirse.",
+     "extra":"Móstoles es la ciudad más grande del sur de Madrid; ofrecemos un servicio cercano, humano y sin sorpresas en el precio."},
     {"slug":"alcorcon","name":"Alcorcón","home_clone":False,
      "hero_sub":"Atención funeraria 24 horas en Alcorcón, con trato cercano y presupuestos claros.",
      "landmarks":"el Hospital Universitario Fundación Alcorcón, el Tanatorio de Alcorcón y barrios como Parque Lisboa, San José de Valderas o Las Retamas",
