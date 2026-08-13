@@ -459,4 +459,200 @@ BLOG_POSTS = [
 <p>Elegir bien es informarse con calma, exigir transparencia y buscar un trato humano. Si quiere un presupuesto claro y sin compromiso en Madrid, Toledo o el sur de Madrid, llámenos: le ayudamos a decidir con tranquilidad.</p>
 """
 },
+{
+ "slug":"como-escribir-una-esquela",
+ "title":"Cómo escribir una esquela: ejemplos y qué debe incluir",
+ "description":"Cómo escribir una esquela paso a paso: qué datos debe incluir, ejemplos y modelos, dónde publicarla y consejos para redactarla con respeto y cariño.",
+ "category":"Consejos",
+ "date":"2026-08-12","date_h":"12 de agosto de 2026",
+ "image":"assets/blog-esquela.jpg",
+ "image_alt":"Tarjeta escrita a mano y una pluma junto a flores blancas bajo luz cálida",
+ "keywords":"cómo escribir una esquela, modelo de esquela, ejemplo esquela, qué poner en una esquela",
+ "body": f"""
+<p class="prose-lead">La esquela es el aviso con el que se comunica el fallecimiento y se invita a la despedida. Redactarla puede resultar difícil en pleno duelo, así que le explicamos qué debe incluir, con ejemplos, para que solo tenga que personalizarla.</p>
+
+<h2>Qué debe incluir una esquela</h2>
+<ul>
+  <li><strong>Nombre completo</strong> de la persona fallecida (y apodo cariñoso, si procede).</li>
+  <li><strong>Fecha del fallecimiento</strong> y, opcionalmente, la edad.</li>
+  <li>Una <strong>frase de despedida</strong> o cita (religiosa o civil).</li>
+  <li><strong>Familiares</strong> que la despiden (cónyuge, hijos, nietos…).</li>
+  <li><strong>Lugar, día y hora</strong> del velatorio y de la ceremonia.</li>
+  <li>Si se desea, indicaciones como "en la intimidad" o "se ruega no enviar flores".</li>
+</ul>
+{_CTA}
+
+<h2>Ejemplo de esquela (civil)</h2>
+<blockquote>Doña [Nombre y Apellidos] falleció el [fecha], a los [edad] años. Su esposo, hijos y nietos agradecen sus muestras de cariño e invitan a la ceremonia de despedida, que se celebrará el [día] a las [hora] en el Tanatorio de [ciudad].</blockquote>
+
+<h2>Ejemplo de esquela (religiosa)</h2>
+<blockquote>Don [Nombre y Apellidos] descansó en la paz del Señor el [fecha]. Su familia ruega una oración por su alma y le invita a la misa funeral que se oficiará el [día] a las [hora] en la Parroquia de [nombre], en [ciudad].</blockquote>
+
+<h2>Dónde se publica</h2>
+<p>Tradicionalmente en prensa, pero hoy la mayoría de esquelas se publican <strong>online</strong> (webs de tanatorios y funerarias, redes sociales) porque llegan antes y a más gente. Nosotros nos encargamos de redactarla y difundirla por usted.</p>
+
+<h2>Consejos para redactarla</h2>
+<ul>
+  <li>Sencillez: unas pocas líneas sinceras valen más que un texto largo.</li>
+  <li>Cuide la ortografía de nombres y fechas.</li>
+  <li>Si duda, use un modelo y personalícelo.</li>
+</ul>
+
+<p>Si necesita ayuda para redactar y publicar una esquela en Madrid, Toledo o el sur de Madrid, llámenos: lo hacemos por usted, con cariño y sin coste añadido.</p>
+"""
+},
+{
+ "slug":"como-acompanar-en-el-duelo",
+ "title":"Cómo acompañar a alguien en el duelo: qué decir y qué evitar",
+ "description":"Guía para acompañar a alguien en el duelo: qué decir y qué evitar, cómo ayudar de forma práctica y cómo estar presente cuando un ser querido está de luto.",
+ "category":"Duelo",
+ "date":"2026-08-10","date_h":"10 de agosto de 2026",
+ "image":"assets/blog-duelo-acompanar.jpg",
+ "image_alt":"Dos personas ofreciéndose consuelo bajo una luz cálida y suave",
+ "keywords":"cómo acompañar en el duelo, qué decir a alguien de luto, ayudar a una persona en duelo, frases de condolencia",
+ "body": f"""
+<p class="prose-lead">Cuando alguien cercano pierde a un ser querido, muchas veces no sabemos qué decir por miedo a equivocarnos. La buena noticia es que <strong>estar presente importa más que las palabras perfectas</strong>. Le damos claves sencillas para acompañar de verdad.</p>
+
+<h2>Qué decir</h2>
+<ul>
+  <li>"Siento mucho tu pérdida. Estoy aquí para lo que necesites."</li>
+  <li>"No sé qué decir, pero quiero acompañarte."</li>
+  <li>Nombrar a la persona fallecida y compartir un buen recuerdo suyo.</li>
+</ul>
+<p>Lo que más consuela es sentir que a la otra persona no le da miedo tu dolor.</p>
+{_CTA}
+
+<h2>Qué es mejor evitar</h2>
+<ul>
+  <li>Frases hechas como "el tiempo lo cura todo" o "tienes que ser fuerte".</li>
+  <li>Comparar duelos ("sé cómo te sientes").</li>
+  <li>Meter prisa a la persona para que "pase página".</li>
+  <li>Evitar el tema o desaparecer por no saber qué decir.</li>
+</ul>
+
+<h2>Cómo ayudar de forma práctica</h2>
+<p>El duelo agota. A veces lo más útil no son las palabras, sino los gestos concretos:</p>
+<ul>
+  <li>Ofrecer ayuda específica: "te llevo la compra", "me ocupo de X trámite".</li>
+  <li>Acompañar en silencio, sin necesidad de llenar los vacíos.</li>
+  <li>Estar también <strong>semanas después</strong>, cuando el resto ya ha vuelto a su rutina.</li>
+</ul>
+
+<h2>Las fases del duelo</h2>
+<p>No hay un camino único ni un tiempo "correcto". El duelo tiene altibajos y cada persona lo vive a su ritmo. Si el dolor se vuelve incapacitante durante mucho tiempo, conviene buscar apoyo profesional (psicólogos especializados en duelo).</p>
+
+<p>En los momentos difíciles, nosotros también acompañamos a las familias con cercanía. Si necesita orientación funeraria en Madrid, Toledo o el sur de Madrid, estamos a su lado las 24 horas.</p>
+"""
+},
+{
+ "slug":"testamento-y-ultimas-voluntades",
+ "title":"Testamento y últimas voluntades: cómo saber si existe y cómo actuar",
+ "description":"Qué es el Certificado de Últimas Voluntades, cómo y cuándo solicitarlo, cómo saber si hay testamento y qué pasos seguir con la herencia tras un fallecimiento.",
+ "category":"Trámites",
+ "date":"2026-08-09","date_h":"9 de agosto de 2026",
+ "image":"assets/blog-testamento.jpg",
+ "image_alt":"Documento oficial con gafas y bolígrafo sobre un escritorio con luz cálida",
+ "keywords":"certificado de últimas voluntades, cómo saber si hay testamento, últimas voluntades cómo solicitar, herencia sin testamento",
+ "body": f"""
+<p class="prose-lead">Tras un fallecimiento, una de las dudas más frecuentes es: ¿dejó testamento? ¿cómo lo averiguo? Le explicamos qué es el Certificado de Últimas Voluntades y cómo actuar, paso a paso.</p>
+
+<h2>¿Qué es el Certificado de Últimas Voluntades?</h2>
+<p>Es el documento oficial que indica <strong>si una persona otorgó testamento y ante qué notario</strong>. Es imprescindible para tramitar la herencia. Lo emite el Ministerio de Justicia.</p>
+{_CTA}
+
+<h2>Cuándo y cómo se solicita</h2>
+<p>Se puede pedir a partir de los <strong>15 días hábiles</strong> desde el fallecimiento. Necesitará el <strong>certificado de defunción</strong>. Se solicita:</p>
+<ul>
+  <li>Online (con certificado digital), o</li>
+  <li>Presencialmente en las Gerencias del Ministerio de Justicia, o</li>
+  <li>Por correo, abonando la tasa correspondiente (modelo 790).</li>
+</ul>
+<p>Junto con este, conviene pedir también el <strong>Certificado de Contratos de Seguros de Cobertura de Fallecimiento</strong>, que indica si la persona tenía seguros de vida o decesos.</p>
+
+<h2>Si hay testamento</h2>
+<p>Con el certificado, acuda al notario indicado para obtener una <strong>copia autorizada</strong> del testamento. En él constará quién hereda y en qué proporción.</p>
+
+<h2>Si NO hay testamento</h2>
+<p>Se tramita una <strong>declaración de herederos</strong> ante notario. La ley establece el orden de sucesión (descendientes, ascendientes, cónyuge…). Es más lento, pero perfectamente resoluble.</p>
+
+<h2>Plazos de la herencia</h2>
+<p>El <strong>Impuesto de Sucesiones</strong> debe liquidarse en <strong>6 meses</strong> (prorrogables). En la Comunidad de Madrid existen importantes bonificaciones para familiares directos; en Castilla‑La Mancha (Toledo) también hay reducciones. Conviene asesorarse.</p>
+
+<p>Sabemos que estos trámites abruman. Además del servicio funerario, le orientamos sobre cómo y dónde realizarlos. Si tiene dudas en Madrid, Toledo o el sur de Madrid, llámenos.</p>
+"""
+},
+{
+ "slug":"que-hacer-con-las-cenizas",
+ "title":"Qué hacer con las cenizas: opciones legales tras la incineración",
+ "description":"Qué se puede hacer con las cenizas tras una incineración: conservarlas, esparcirlas, columbario o inhumación. Opciones legales, permisos y consejos con respeto.",
+ "category":"Orientación",
+ "date":"2026-08-07","date_h":"7 de agosto de 2026",
+ "image":"assets/blog-cenizas.jpg",
+ "image_alt":"Paisaje sereno de mar o campo al atardecer, luz cálida y ambiente de calma",
+ "keywords":"qué hacer con las cenizas, esparcir cenizas legal, columbario, dónde guardar las cenizas, cenizas incineración",
+ "body": f"""
+<p class="prose-lead">Tras una incineración, la familia recibe las cenizas y surge una pregunta muy personal: ¿qué hacemos con ellas? Le contamos todas las opciones legales para que elija con calma la que mejor honre a su ser querido.</p>
+
+<h2>1. Conservarlas en casa</h2>
+<p>Es perfectamente legal guardar la urna en el domicilio. Muchas familias lo prefieren como forma de mantener cerca a la persona. Se entrega con el <strong>certificado de cremación</strong>, que conviene conservar.</p>
+{_CTA}
+
+<h2>2. Depositarlas en un columbario</h2>
+<p>El columbario es un espacio en el cementerio destinado a urnas. Ofrece un <strong>lugar físico de recuerdo</strong> donde acudir, con la ventaja de un coste menor que una sepultura tradicional.</p>
+
+<h2>3. Inhumarlas en una sepultura</h2>
+<p>Las cenizas también pueden enterrarse en una sepultura o panteón familiar, junto a otros seres queridos.</p>
+
+<h2>4. Esparcirlas en la naturaleza</h2>
+<p>Esparcir las cenizas es legal, pero con matices: hay que <strong>respetar la normativa ambiental</strong> de cada lugar. En terrenos privados se necesita permiso del propietario; en espacios naturales protegidos, mar o montes suele requerirse autorización. Le informamos de lo permitido según la zona.</p>
+
+<h2>5. Otras opciones</h2>
+<ul>
+  <li>Repartir las cenizas entre varios familiares en urnas pequeñas.</li>
+  <li>Joyas o recuerdos conmemorativos que integran una pequeña parte.</li>
+  <li>Traslado de las cenizas a otra localidad o país (con su documentación).</li>
+</ul>
+
+<h2>¿Hay prisa por decidir?</h2>
+<p>Ninguna. Puede conservar la urna el tiempo que necesite hasta tomar la decisión. Lo importante es que sea significativa para su familia.</p>
+
+<p>Si tiene dudas sobre qué hacer con las cenizas o necesita gestionar un traslado en Madrid, Toledo o el sur de Madrid, llámenos: le orientamos sin ninguna prisa.</p>
+"""
+},
+{
+ "slug":"como-explicar-la-muerte-a-un-nino",
+ "title":"Cómo explicar la muerte a un niño y si debe ir al velatorio",
+ "description":"Cómo explicar la muerte a un niño según su edad, con palabras claras y honestas, y cómo decidir si debe acudir al velatorio o al funeral. Consejos con delicadeza.",
+ "category":"Duelo",
+ "date":"2026-08-05","date_h":"5 de agosto de 2026",
+ "image":"assets/blog-velatorio-ninos.jpg",
+ "image_alt":"Manos de un adulto y un niño sosteniendo juntas una pequeña flor blanca",
+ "keywords":"cómo explicar la muerte a un niño, niños y duelo, debe ir un niño al velatorio, hablar de la muerte con niños",
+ "body": f"""
+<p class="prose-lead">Explicar a un niño que un ser querido ha fallecido es una de las conversaciones más difíciles. Pero los niños también necesitan despedirse y entender lo ocurrido, a su manera. Le damos pautas según la edad y para decidir sobre el velatorio.</p>
+
+<h2>Habla con claridad y honestidad</h2>
+<p>Evite eufemismos como "se ha dormido" o "se ha ido de viaje": pueden generar confusión o miedo. Use palabras sencillas y reales, adaptadas a su edad: "el abuelo ha muerto, su cuerpo ha dejado de funcionar y ya no va a volver".</p>
+{_CTA}
+
+<h2>Según la edad</h2>
+<ul>
+  <li><strong>Hasta 5–6 años:</strong> no comprenden que la muerte es definitiva. Repita con paciencia, con mensajes cortos y mucho cariño.</li>
+  <li><strong>6–9 años:</strong> empiezan a entender que es irreversible; pueden hacer preguntas muy directas. Respóndalas con naturalidad.</li>
+  <li><strong>A partir de 9–10 años:</strong> comprenden la muerte de forma similar a un adulto; necesitan sentirse incluidos.</li>
+</ul>
+
+<h2>¿Debe ir el niño al velatorio o al funeral?</h2>
+<p>No hay una respuesta única. En general, <strong>si el niño quiere ir y se le explica antes qué va a ver</strong>, acudir puede ayudarle a despedirse y a entender lo ocurrido. Nunca se le debe obligar. Conviene que un adulto de confianza esté pendiente solo de él, para salir si se agobia.</p>
+
+<h2>Cómo apoyarle después</h2>
+<ul>
+  <li>Permita que exprese sus emociones (llanto, enfado, preguntas).</li>
+  <li>Mantenga las rutinas: dan seguridad.</li>
+  <li>Recuerde a la persona fallecida con naturalidad y buenos momentos.</li>
+</ul>
+
+<p>Acompañar a los más pequeños también forma parte de una despedida sana. Si necesita orientación funeraria cercana en Madrid, Toledo o el sur de Madrid, estamos a su lado las 24 horas.</p>
+"""
+},
 ]
