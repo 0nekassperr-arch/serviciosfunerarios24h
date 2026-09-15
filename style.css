@@ -746,12 +746,43 @@ img { max-width: 100%; height: auto; display: block; }
 .price-card li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 800; }
 .price-note { text-align: center; color: var(--text-light); font-size: .84rem; max-width: 680px; margin: 22px auto 0; }
 
-.serv-block__grid { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 10px; }
-@media (min-width: 820px){ .serv-block__grid { grid-template-columns: 1.4fr 1fr; align-items: start; } }
-.serv-block h2 { font-size: 1.4rem; }
-.serv-block__list { list-style: none; padding: 0; margin: 0; }
-.serv-block__list li { padding: 10px 0 10px 28px; position: relative; border-bottom: 1px solid var(--gold-line); color: var(--text-soft); }
-.serv-block__list li::before { content: "✦"; position: absolute; left: 0; color: var(--gold); }
+.serv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 8px;
+}
+@media (min-width: 700px){ .serv-grid { grid-template-columns: 1fr 1fr; } }
+.serv-card {
+  background: #fff;
+  border: 1px solid var(--gold-line);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .2s ease;
+  scroll-margin-top: 88px;
+}
+.serv-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.serv-card--featured { border: 2px solid var(--gold); }
+.serv-card__icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--cream-2); border: 1px solid var(--gold-line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); margin-bottom: 14px;
+}
+.serv-card__icon svg { width: 26px; height: 26px; }
+.serv-card h3 { font-size: 1.22rem; margin: 0 0 8px; }
+.serv-card p { color: var(--text-soft); font-size: .96rem; margin: 0 0 14px; }
+.serv-card ul { list-style: none; padding: 0; margin: 0 0 18px; flex: 1; }
+.serv-card li {
+  position: relative; padding: 7px 0 7px 26px;
+  border-bottom: 1px solid var(--gold-line);
+  color: var(--text-soft); font-size: .93rem;
+}
+.serv-card li:last-child { border-bottom: none; }
+.serv-card li::before { content: "✦"; position: absolute; left: 0; color: var(--gold); }
 
 /* ----- Contacto ----- */
 .contact-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }

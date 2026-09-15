@@ -209,44 +209,71 @@ def run(g):
       </div>
     </section>'''
 
-    def serv(id_, title, text, points):
+    ICO = {
+      "flame": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 4 2 6 0 8 3-1 6 1 6 5a6 6 0 1 1-12 0c0-5 4-8 6-13z"/></svg>',
+      "earth": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z"/><circle cx="12" cy="11" r="2.2"/></svg>',
+      "truck": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>',
+      "home": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>',
+      "music": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+      "plan": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+      "shield": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4z"/></svg>',
+      "docs": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a1 1 0 0 1 1 1v1h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h4"/></svg>',
+    }
+
+    def serv_card(id_, title, text, points, icon, featured=False):
         pts = "".join(f"<li>{p}</li>" for p in points)
-        return f'''<section class="section section--alt serv-block" id="{id_}">
+        feat = " serv-card--featured" if featured else ""
+        return f'''<article class="serv-card{feat}" id="{id_}">
+          <div class="serv-card__icon">{icon}</div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+          <ul>{pts}</ul>
+          <a class="btn btn--ghost btn--block" href="#formulario">Pedir presupuesto</a>
+        </article>'''
+
+    serv_cards = "".join([
+      serv_card("incineracion","Incineración (cremación)",
+        "La opción más elegida en el sur de Madrid. Recogida, trámites, crematorio y urna, con respeto y precio claro.",
+        ["Desde 1.500 €","Urnas a elegir","Documentación oficial","Ceremonia previa si lo desea"],
+        ICO["flame"], featured=True),
+      serv_card("inhumacion","Inhumación (entierro)",
+        "Servicio completo de entierro tradicional, con cementerio, nicho o sepultura si la necesita.",
+        ["Féretro y coche fúnebre","Gestión de sepultura","Coordinación con el cementerio","Lápidas y marmolería"],
+        ICO["earth"]),
+      serv_card("traslados","Traslados y repatriación",
+        "Si el fallecimiento es lejos de casa, organizamos el traslado nacional o internacional puerta a puerta.",
+        ["Nacional desde 900 €","Repatriaciones","Gestión documental","Coordinación 24 h"],
+        ICO["truck"]),
+      serv_card("tanatorio","Tanatorio y velatorio",
+        "Reservamos sala en el recinto de su localidad para una despedida serena, con los tiempos que su familia necesite.",
+        ["Sala de velatorio","Horarios flexibles","Tanatoestética","Cafetería y descanso"],
+        ICO["home"]),
+      serv_card("ceremonias","Ceremonias",
+        "Religiosa o civil, con música, lecturas y los detalles que hagan del adiós un homenaje personal.",
+        ["Cualquier confesión","Ceremonia civil","Música y recuerdos","Oficiante si lo precisa"],
+        ICO["music"]),
+      serv_card("prevision","Previsión",
+        "Dejarlo previsto es un acto de amor. Fijamos hoy las condiciones para no dejar decisiones difíciles a los suyos.",
+        ["A su medida","Precio acordado","Revisable","Tranquilidad para la familia"],
+        ICO["plan"]),
+      serv_card("seguros","Seguros de decesos",
+        "Revisamos su póliza sin coste. Puede elegirnos aunque el seguro sea de otra compañía.",
+        ["Revisión gratuita","Trato con la aseguradora","Libertad de elección","Sin coste añadido"],
+        ICO["shield"]),
+      serv_card("tramites","Gestión de trámites",
+        "Certificado, Registro Civil y licencias. Le orientamos también en pensiones, herencias y últimas voluntades.",
+        ["Registro Civil","Licencias","Pensiones y herencias","Familias sin seguro"],
+        ICO["docs"]),
+    ])
+
+    serv_sections = f'''<section class="section section--alt" aria-labelledby="serv-detalle-title">
       <div class="container">
-        <h2>{title}</h2>
-        <div class="serv-block__grid">
-          <div>{text}</div>
-          <ul class="serv-block__list">{pts}</ul>
-        </div>
+        <span class="section__eyebrow">Qué cubrimos</span>
+        <h2 id="serv-detalle-title" class="section__title">Cada servicio, con calma y claridad</h2>
+        <p class="section__subtitle">Atención 24 horas. Usted elige; nosotros coordinamos.</p>
+        <div class="serv-grid">{serv_cards}</div>
       </div>
     </section>'''
-
-    serv_sections = "".join([
-      serv("incineracion","Incineración (cremación)",
-        "<p>La incineración es la opción más elegida en el sur de Madrid por su flexibilidad y su precio contenido. Nos encargamos de todo el proceso con el máximo respeto: recogida, preparación, coordinación del crematorio y entrega de las cenizas en la urna que elija. Le acompañamos también a la hora de decidir el destino de las cenizas.</p>",
-        ["Incineración desde 1.500€","Amplia variedad de urnas","Cenizas entregadas con documentación oficial","Posibilidad de ceremonia previa"]),
-      serv("inhumacion","Inhumación (entierro)",
-        "<p>Para las familias que prefieren el entierro tradicional, gestionamos el servicio completo de inhumación, incluida la coordinación con el cementerio y, si lo necesita, la búsqueda y tramitación de la sepultura o nicho.</p>",
-        ["Féretro y coche fúnebre","Gestión de sepultura o nicho","Coordinación con el cementerio","Lápidas y trabajos de marmolería"]),
-      serv("traslados","Traslados nacionales e internacionales",
-        "<p>Si el fallecimiento se produce lejos del lugar donde la familia desea la despedida, organizamos el traslado con todas las garantías legales y sanitarias, tanto dentro de España como al extranjero (repatriaciones).</p>",
-        ["Traslado nacional desde 900€","Repatriaciones internacionales","Gestión documental completa","Coordinación puerta a puerta"]),
-      serv("tanatorio","Tanatorio y velatorio",
-        "<p>Coordinamos salas de velatorio en los tanatorios del sur de Madrid para que familiares y amigos puedan despedirse en un entorno digno y acogedor, con los tiempos que cada familia necesite.</p>",
-        ["Salas de velatorio","Cafetería y espacios de descanso","Tanatoestética y tanatopraxia","Horarios flexibles"]),
-      serv("ceremonias","Ceremonias religiosas y civiles",
-        "<p>Organizamos la ceremonia de despedida según las creencias y deseos de cada familia: religiosa (de cualquier confesión) o civil, con música, lecturas y los detalles que hagan del adiós un homenaje personal.</p>",
-        ["Ceremonias religiosas","Ceremonias civiles personalizadas","Música y proyección de recuerdos","Oficiante o maestro de ceremonias"]),
-      serv("prevision","Previsión y planificación",
-        "<p>Dejarlo todo previsto es un acto de amor hacia los suyos. Le ayudamos a planificar el servicio con antelación, fijando hoy las condiciones y evitando decisiones difíciles en el futuro.</p>",
-        ["Planificación personalizada","Precio fijado por adelantado","Revisable en cualquier momento","Tranquilidad para su familia"]),
-      serv("seguros","Seguros de decesos",
-        "<p>¿Tiene un seguro de decesos y no sabe qué cubre? Lo revisamos por usted y gestionamos el servicio aprovechando al máximo su póliza. Recuerde: tiene derecho a elegirnos aunque su seguro sea de otra compañía.</p>",
-        ["Revisión gratuita de su póliza","Gestión con la aseguradora","Libertad de elección garantizada","Sin coste añadido para usted"]),
-      serv("tramites","Gestión de trámites",
-        "<p>Nos ocupamos de toda la parte administrativa urgente —certificados, inscripción en el Registro Civil, licencias— y le orientamos sobre los trámites posteriores (pensiones, herencias, últimas voluntades).</p>",
-        ["Certificado y Registro Civil","Licencias de enterramiento/incineración","Orientación sobre pensiones y herencias","Asesoramiento para familias sin seguro"]),
-    ])
 
     serv_faq = [
       ("¿Cuánto cuesta una incineración?","Ofrecemos incineración desde 1.500 €, con trámites incluidos y presupuesto cerrado por escrito."),
@@ -261,9 +288,6 @@ def run(g):
                 image="assets/apoyo-familiar.jpg",
                 actions=BTN_CALL + '<a class="btn btn--offer" href="#precios">Ver precios <small>Desde 1.500 €</small></a>') +
       crumbs_html(px, [("Inicio",""),("Servicios","servicios/")]) +
-      '''<section class="section"><div class="container prose" style="text-align:center">
-        <p class="prose-lead">Ofrecemos todos los servicios funerarios que su familia puede necesitar, con atención las 24 horas del día y precios claros desde el primer momento. Nos encargamos de absolutamente todo para que usted solo tenga que ocuparse de despedirse de su ser querido.</p>
-      </div></section>''' +
       price_grid +
       serv_sections +
       cta_band(px) +

@@ -481,9 +481,9 @@ HOME_BODY = r'''
           <a class="btn btn--primary btn--xl" href="tel:+34910000000" data-track="hero-call">
             📞 LLAMAR AHORA · 24h
           </a>
-          <a class="btn btn--offer" href="#formulario" data-track="hero-cremacion">
-            Cremación por 1.500€
-            <small>Presupuesto sin compromiso</small>
+          <a class="btn btn--offer" href="necesito-ayuda/" data-track="hero-ayuda">
+            ¿Qué hacer ahora?
+            <small>Guía paso a paso</small>
           </a>
         </div>
         <ul class="hero__trust" aria-label="Garantías del servicio">
