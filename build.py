@@ -13,8 +13,8 @@ from content_blog import BLOG_POSTS
 BASE_URL   = "https://serviciosfunerarios24h.es"
 SITE_NAME  = "Servicios Funerarios 24h"
 BRAND      = "serviciosfunerarios24h.es"
-PHONE_DISP = "910 000 000"
-PHONE_TEL  = "+34910000000"
+PHONE_DISP = "615 100 893"
+PHONE_TEL  = "+34615100893"
 WHATSAPP   = "+34600000000"          # ⚠ placeholder
 EMAIL      = "info@serviciosfunerarios24h.es"
 ADDR_STREET= ""                      # sin calle inventada (Google la trata como señal de negocio falso)
@@ -478,7 +478,7 @@ HOME_BODY = r'''
           Le orientamos con calma y sin compromiso
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary btn--xl" href="tel:+34910000000" data-track="hero-call">
+          <a class="btn btn--primary btn--xl" href="tel:+34615100893" data-track="hero-call">
             📞 LLAMAR AHORA · 24h
           </a>
           <a class="btn btn--offer" href="necesito-ayuda/" data-track="hero-ayuda">
@@ -504,11 +504,11 @@ HOME_BODY = r'''
           con calma sobre los primeros pasos y coordinará el contacto con la funeraria.
           Estamos disponibles a cualquier hora, todos los días del año.
         </p>
-        <a class="btn-call" href="tel:+34910000000" data-track="urgency-call" aria-label="Llamar ahora, línea 24 horas">
+        <a class="btn-call" href="tel:+34615100893" data-track="urgency-call" aria-label="Llamar ahora, línea 24 horas">
           <span class="btn-call__icon" aria-hidden="true">📞</span>
           <span class="btn-call__label">
             <strong>LLAMAR AHORA · 24H</strong>
-            <small>910 000 000 — Le atendemos ya</small>
+            <small>615 100 893 — Le atendemos ya</small>
           </span>
         </a>
         <p class="urgency__note">Llamada de orientación gratuita · También le devolvemos la llamada si lo prefiere</p>
@@ -709,7 +709,7 @@ HOME_BODY = r'''
           </details>
           <details>
             <summary>¿Qué hago si acaba de fallecer un familiar?</summary>
-            <p>Llámenos al 910 000 000 en cualquier momento. Le orientaremos con calma sobre los primeros pasos y coordinaremos todo de inmediato.</p>
+            <p>Llámenos al 615 100 893 en cualquier momento. Le orientaremos con calma sobre los primeros pasos y coordinaremos todo de inmediato.</p>
           </details>
           <details>
             <summary>¿Trabajan con familias sin seguro de decesos?</summary>
@@ -735,7 +735,7 @@ page("",
       faq_schema([
         ("¿Atienden las 24 horas?","Sí, estamos disponibles las 24 horas del día, los 365 días del año."),
         ("¿Cuánto cuesta un servicio funerario?","Ofrecemos incineración desde 1.500 €, con presupuestos claros y sin cargos ocultos."),
-        ("¿Qué hago si acaba de fallecer un familiar?","Llámenos al 910 000 000 en cualquier momento; le orientaremos y coordinaremos todo de inmediato."),
+        ("¿Qué hago si acaba de fallecer un familiar?","Llámenos al 615 100 893 en cualquier momento; le orientaremos y coordinaremos todo de inmediato."),
       ])])
 
 # ---- resto de paginas se generan en build2 ----

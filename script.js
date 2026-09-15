@@ -186,7 +186,7 @@
       '<p>Le contactaremos <strong>en pocos minutos</strong> por teléfono o WhatsApp para ' +
       'atenderle con calma, sin ningún compromiso.</p>' +
       '<p>Si prefiere atención inmediata, puede llamarnos ahora al ' +
-      '<a href="tel:+34910000000">910 000 000</a>.</p>';
+      '<a href="tel:+34615100893">615 100 893</a>.</p>';
     successBox.hidden = false;
     successBox.scrollIntoView({ behavior: "smooth", block: "center" });
   }
@@ -266,7 +266,7 @@
     knowledgeBase: [
       "Servicios Funerarios 24h atiende Móstoles y el sur de Madrid las 24 horas.",
       "Ofrecemos incineración desde 1.500€, inhumación desde 2.900€ y traslados.",
-      "Teléfono de contacto 24h: 910 000 000.",
+      "Teléfono de contacto 24h: 615 100 893.",
       "Trabajamos con familias con y sin seguro de decesos, con opciones de financiación.",
       "Nos encargamos de todos los trámites: certificado, Registro Civil y licencias."
     ].join(" "),
@@ -311,9 +311,9 @@
   /* ---------- Respuestas locales (si la API falla / no hay key) ---------- */
   var LOCAL_FAQ = [
     { k: ["precio","cuesta","cuánto","cuanto","tarifa","incinera","cremaci"],
-      a: "Ofrecemos incineración desde 1.500€ e inhumación desde 2.900€, siempre con presupuesto cerrado y sin cargos ocultos. ¿Quiere que le preparemos uno sin compromiso? Puede llamarnos al 910 000 000." },
+      a: "Ofrecemos incineración desde 1.500€ e inhumación desde 2.900€, siempre con presupuesto cerrado y sin cargos ocultos. ¿Quiere que le preparemos uno sin compromiso? Puede llamarnos al 615 100 893." },
     { k: ["24","hora","noche","ahora","urg","fallec","muerto","murió","murio"],
-      a: "Sí, atendemos las 24 horas, los 365 días del año. Si acaba de producirse un fallecimiento, lo mejor es llamarnos ahora mismo al 910 000 000 y le orientamos de inmediato." },
+      a: "Sí, atendemos las 24 horas, los 365 días del año. Si acaba de producirse un fallecimiento, lo mejor es llamarnos ahora mismo al 615 100 893 y le orientamos de inmediato." },
     { k: ["seguro","decesos","póliza","poliza"],
       a: "Trabajamos con y sin seguro de decesos. Si tiene póliza, la revisamos gratis; y recuerde que puede elegirnos aunque el seguro sea de otra compañía." },
     { k: ["trámite","tramite","papeleo","registro","certificado","document"],
@@ -339,9 +339,9 @@
     }
     // Respuesta por defecto: variada (nunca la misma dos veces seguidas)
     return pickVaried([
-      "Con mucho gusto le ayudo. ¿Puede contarme un poco más? Si lo prefiere, también estamos en el 910 000 000, las 24 horas.",
+      "Con mucho gusto le ayudo. ¿Puede contarme un poco más? Si lo prefiere, también estamos en el 615 100 893, las 24 horas.",
       "Estoy aquí para ayudarle con lo que necesite sobre nuestros servicios. ¿En qué puedo orientarle?",
-      "Claro, dígame en qué puedo ayudarle. Si en algún momento lo prefiere, puede llamarnos al 910 000 000.",
+      "Claro, dígame en qué puedo ayudarle. Si en algún momento lo prefiere, puede llamarnos al 615 100 893.",
       "Por supuesto. Cuénteme qué necesita y le oriento con mucho gusto."
     ]);
   }
@@ -413,7 +413,7 @@
       "ajeno a la funeraria (política, deportes, tecnología, etc.), responde amablemente que solo " +
       "puedes ayudar con temas relacionados con nuestros servicios funerarios y no facilites ninguna " +
       "otra información. No inventes datos que no aparezcan en la INFORMACIÓN; si no lo sabes, invita " +
-      "a llamar al 910 000 000. " +
+      "a llamar al 615 100 893. " +
       "Si el cliente se despide, da las gracias o dice que no necesita nada más, respóndele con una " +
       "despedida cálida y humana (agradece, ofrécete para lo que necesite), variando las palabras y " +
       "SIN repetir siempre la misma frase ni forzar que llame por teléfono. " +

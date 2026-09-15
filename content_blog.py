@@ -3,7 +3,7 @@
 
 _CTA = ('<div class="prose-cta"><p><strong>¿Necesita ayuda ahora?</strong> '
         'Estamos disponibles las 24 horas. Llámenos al '
-        '<a href="tel:+34910000000">910 000 000</a> y le atenderemos de inmediato.</p></div>')
+        '<a href="tel:+34615100893">615 100 893</a> y le atenderemos de inmediato.</p></div>')
 
 BLOG_POSTS = [
 {
