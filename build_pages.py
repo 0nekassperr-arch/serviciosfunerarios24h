@@ -320,40 +320,60 @@ def run(g):
           ("¿Atienden sin seguro de decesos?",
            "Sí. Es habitual. Presupuesto por escrito y, si lo necesita, facilidades de pago."),
         ]
+        urgency = f'''<section class="urgency urgency--photo">
+      <div class="container urgency__inner">
+        <p class="urgency__flag">Asistencia inmediata en {name} · 24h</p>
+        <h2 class="urgency__title">¿Ha fallecido un ser querido en {name}?</h2>
+        <p class="urgency__text">Le atendemos ahora. Recogida, tanatorio y trámites en {name}. No está obligado a contratar la funeraria del hospital.</p>
+        <a class="btn-call" href="tel:{PHONE_TEL}" data-track="urgency-call"><span class="btn-call__icon" aria-hidden="true">📞</span><span class="btn-call__label"><strong>LLAMAR AHORA · 24H</strong><small>{PHONE_DISP} — Le atendemos ya</small></span></a>
+        <p class="urgency__note">Llamada de orientación gratuita · También le devolvemos la llamada</p>
+      </div>
+    </section>'''
         pasos = f'''<section class="section">
-      <div class="container prose">
-        <span class="section__eyebrow">Urgente en {name}</span>
-        <h2>Qué hacer ahora mismo</h2>
-        <ol>
-          <li><strong>Certificado.</strong> En domicilio: médico o 112. En hospital o residencia de {name}: lo gestiona el propio centro.</li>
-          <li><strong>Elija funeraria.</strong> Tiene libertad de elección. Llámenos al {PHONE_DISP} (24 h); no firme nada en el hospital si no quiere.</li>
-          <li><strong>Nosotros nos ocupamos.</strong> Recogida, sala de velatorio, Registro Civil e incineración o entierro. Usted decide con calma.</li>
-        </ol>
-        <p><a class="btn btn--primary" href="tel:{PHONE_TEL}">Llamar 24h · {PHONE_DISP}</a></p>
+      <div class="container">
+        <span class="section__eyebrow">Primeros pasos en {name}</span>
+        <h2 class="section__title">Qué hacer ahora mismo</h2>
+        <div class="steps" style="margin-top:26px">
+          <article class="step"><div class="step__num">1</div><h3>Certificado</h3><p>En casa: médico o 112. En hospital o residencia de {name}: lo emite el centro.</p></article>
+          <article class="step"><div class="step__num">2</div><h3>Elija funeraria</h3><p>Libertad de elección. Llámenos al {PHONE_DISP}. No firme en el hospital si no quiere.</p></article>
+          <article class="step"><div class="step__num">3</div><h3>Nos ocupamos</h3><p>Recogida, sala, Registro Civil e incineración o entierro. Usted decide con calma.</p></article>
+        </div>
       </div>
     </section>'''
         cobertura = f'''<section class="section section--alt">
       <div class="container">
-        <span class="section__eyebrow">Cobertura</span>
-        <h2 class="section__title">Funeraria en {name}: dónde actuamos</h2>
-        <p class="section__subtitle">{z["intro"]}</p>
-        <p style="max-width:720px;margin:0 auto 22px;text-align:center">Atendemos fallecimientos en {z["landmarks"]}. {z["extra"]}</p>
-        <div class="grid-3">
-          <article class="card"><h3 class="card__title">Tanatorio y velatorio</h3>
-            <p class="card__text">Reservamos la sala en {name} o en el recinto más cercano con disponibilidad.</p>
-            <p><a href="{tan_href}">Tanatorio en {name} →</a></p></article>
-          <article class="card"><h3 class="card__title">Precios en {name}</h3>
-            <p class="card__text">Incineración desde 1.500 €. Presupuesto cerrado, tasas de {name} desglosadas.</p>
-            <p><a href="{pre_href}">{pre_label} →</a></p></article>
-          <article class="card"><h3 class="card__title">Trámites</h3>
-            <p class="card__text">Certificado, Registro Civil y licencias de incineración o inhumación en {name}.</p>
-            <p><a href="{L(px,'necesito-ayuda/')}">Guía de primeros pasos →</a></p></article>
+        <span class="section__eyebrow">En {name}</span>
+        <h2 class="section__title">Tanatorio, precios y trámites</h2>
+        <div class="grid-3" style="margin-top:26px">
+          <article class="card"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+            <h3 class="card__title">Tanatorio</h3>
+            <p class="card__text">Reservamos sala en {name} o en el recinto más cercano.</p>
+            <p class="readmore" style="margin-top:12px"><a href="{tan_href}">Tanatorio en {name} →</a></p></article>
+          <article class="card"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7-7A2 2 0 0 1 3 12.2V4a1 1 0 0 1 1-1h8.2c.5 0 1 .2 1.4.6l7 7a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+            <h3 class="card__title">Precios</h3>
+            <p class="card__text">Incineración desde 1.500 €. Tasas de {name} desglosadas.</p>
+            <p class="readmore" style="margin-top:12px"><a href="{pre_href}">{pre_label} →</a></p></article>
+          <article class="card"><div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a1 1 0 0 1 1 1v1h2a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h2V4a1 1 0 0 1 1-1z"/><path d="M9 12h6M9 16h4"/></svg></div>
+            <h3 class="card__title">Trámites</h3>
+            <p class="card__text">Certificado, Registro Civil y licencias en {name}.</p>
+            <p class="readmore" style="margin-top:12px"><a href="{L(px,'necesito-ayuda/')}">Guía de primeros pasos →</a></p></article>
+        </div>
+      </div>
+    </section>'''
+        local = f'''<section class="section">
+      <div class="container media">
+        <div class="media__img"><img src="{px}assets/camino-sereno.jpg" alt="Entorno sereno en {name}" loading="lazy" /></div>
+        <div class="media__body">
+          <span class="section__eyebrow" style="text-align:left">Servicio local</span>
+          <h2>Cercanos a las familias de {name}</h2>
+          <p>{z["intro"]}</p>
+          <p>Atendemos fallecimientos en {z["landmarks"]}. {z["extra"]}</p>
         </div>
       </div>
     </section>'''
         body = (
           page_hero(f"Funeraria en {name} · 24 horas", z["hero_sub"]) +
-          pasos + cobertura +
+          urgency + pasos + cobertura + local +
           faq_block(f"Preguntas frecuentes · funeraria en {name}", zfaq) +
           lead_form(px, f"Pida orientación en {name}",
                     f"Situación no urgente o previsión. Le llamamos para {name}.")
@@ -388,41 +408,40 @@ def run(g):
         ]
         has_precios = any(p["slug"] == c["slug"] for p in PRECIOS)
         pre_href = L(px, f"precios-funeraria-{c['slug']}/") if has_precios else L(px, "servicios/")
-        lugar = f'''<section class="section">
-      <div class="container prose">
-        <span class="section__eyebrow">El recinto</span>
-        <h2>Dónde está el tanatorio de {name}</h2>
-        <p><strong>{c.get("place", f"Tanatorio de {name}")}</strong><br>{c.get("addr", "")}</p>
-        <p>{c.get("local", f"Coordinamos la sala de velatorio en {name} o en el recinto más cercano con disponibilidad.")}</p>
-        <p>Recogida 24 h desde {c["hosp"]}, domicilios y residencias. Barrios habituales: {c["barrios"]}.</p>
-        <p><a class="btn btn--primary" href="tel:{PHONE_TEL}">Reservar sala · {PHONE_DISP}</a></p>
+        urg_t = f'''<section class="urgency urgency--photo">
+      <div class="container urgency__inner">
+        <p class="urgency__flag">Velatorio en {name} · 24h</p>
+        <h2 class="urgency__title">¿Necesita reservar sala ahora?</h2>
+        <p class="urgency__text">Confirmamos disponibilidad en el tanatorio de {name} y organizamos la recogida desde {c["hosp"]} o el domicilio.</p>
+        <a class="btn-call" href="tel:{PHONE_TEL}" data-track="urgency-call"><span class="btn-call__icon" aria-hidden="true">📞</span><span class="btn-call__label"><strong>RESERVAR SALA · 24H</strong><small>{PHONE_DISP}</small></span></a>
+        <p class="urgency__note">Le indicamos dirección y cómo llegar al recinto</p>
       </div>
     </section>'''
-        velatorio = f'''<section class="section section--alt">
+        lugar = f'''<section class="section">
       <div class="container media">
         <div class="media__img"><img src="{px}assets/blog-tanatorio.jpg" alt="Sala de velatorio en {name}" loading="lazy" /></div>
         <div class="media__body">
-          <span class="section__eyebrow" style="text-align:left">El velatorio</span>
-          <h2>Qué incluye la sala en {name}</h2>
-          <p>No es un trámite más: es el lugar donde la familia se despide. Coordinamos:</p>
+          <span class="section__eyebrow" style="text-align:left">El recinto</span>
+          <h2>Dónde está el tanatorio de {name}</h2>
+          <p><strong>{c.get("place", f"Tanatorio de {name}")}</strong><br>{c.get("addr", "")}</p>
+          <p>{c.get("local", f"Coordinamos la sala de velatorio en {name} o en el recinto más cercano.")}</p>
           <ul class="media__list">
-            <li>Reserva de tanatosala (horas según disponibilidad del recinto)</li>
-            <li>Preparación y tanatoestética</li>
-            <li>Ceremonia religiosa o civil en la sala o capilla del recinto</li>
-            <li>Salida hacia crematorio o cementerio</li>
+            <li>Recogida 24 h desde {c["hosp"]}</li>
+            <li>Barrios: {c["barrios"]}</li>
+            <li>Ceremonia religiosa o civil en sala</li>
+            <li>Salida a crematorio o cementerio</li>
           </ul>
           <p style="margin-top:14px">
-            <a href="{L(px, c['slug']+'/')}">Funeraria en {name} (servicio completo) →</a><br>
-            <a href="{pre_href}">Precios y qué está incluido →</a><br>
-            <a href="{L(px,'blog/tanatorio-velatorio-que-esperar/')}">Cómo funciona un velatorio →</a>
+            <a href="{L(px, c['slug']+'/')}">Funeraria en {name} →</a><br>
+            <a href="{pre_href}">Precios en {name} →</a>
           </p>
         </div>
       </div>
     </section>'''
         body = (
           page_hero(f"Tanatorio en {name}",
-                    f"Dirección del recinto, cómo llegar y reserva de sala 24 h. Coordinamos el velatorio en {name}.") +
-          lugar + velatorio +
+                    f"Dirección del recinto, cómo llegar y reserva de sala 24 h en {name}.") +
+          urg_t + lugar +
           faq_block(f"Tanatorio de {name}: dudas frecuentes", tfaq) +
           lead_form(px, f"Reserva de sala en {name}",
                     f"Indíquenos hospital o domicilio en {name} y le confirmamos sala.")
@@ -455,26 +474,19 @@ def run(g):
           </div>
           <p class="price-note">Precios orientativos. El importe final depende de las prestaciones y de las tasas de {name}. Le entregamos siempre el presupuesto por escrito antes de contratar.</p>
         </div></section>'''
-        info = f'''<section class="section section--alt"><div class="container prose">
-          <h2>Qué está incluido (y qué no) en {name}</h2>
-          <p>El precio «desde» no es el total del sepelio. En {name} hay que sumar, cuando apliquen:</p>
-          <ul>
-            <li>Tasa de crematorio o de cementerio municipal de {name} (las pone el ayuntamiento o el recinto, no la funeraria).</li>
-            <li>Horas extra de sala de velatorio.</li>
-            <li>Sepultura o nicho, si no hay uno ya de la familia.</li>
-            <li>Flores, esquelas, urna distinta de la básica.</li>
-          </ul>
-          <h3>Cómo se calcula aquí</h3>
-          <p>{c.get("local", f"En {name} el importe final depende del tipo de despedida, la sala y las tasas municipales.")}</p>
-          <h3>Tres situaciones frecuentes en {name}</h3>
-          <ul>
-            <li><strong>Incineración sin seguro:</strong> el paquete desde 1.500 € cubre recogida, féretro de incineración, trámites y urna básica. Sala y tasa de crematorio van aparte si las hay.</li>
-            <li><strong>Entierro con nicho propio:</strong> desde 2.900 € más tasas del cementerio de {name}. Sin compra de sepultura nueva.</li>
-            <li><strong>Fallecimiento en hospital y velatorio:</strong> se suma la sala. Le damos cifra cerrada antes de reservar.</li>
-          </ul>
-          <p>Sin seguro de decesos hay <a href="{L(px,'blog/ayudas-gastos-funerarios/')}">ayudas</a> (auxilio por defunción, servicios sociales). Presupuesto por escrito siempre.</p>
-          <p><a href="{L(px, c['slug']+'/')}">Funeraria en {name} →</a> · <a href="{L(px, 'tanatorio-'+c['slug']+'/')}">Tanatorio en {name} →</a></p>
-        </div></section>'''
+        info = f'''<section class="section section--alt">
+      <div class="container">
+        <span class="section__eyebrow">En {name}</span>
+        <h2 class="section__title">Qué está incluido (y qué no)</h2>
+        <p class="section__subtitle">{c.get("local", f"En {name} el importe final depende del tipo de despedida, la sala y las tasas municipales.")}</p>
+        <div class="grid-3">
+          <article class="card"><h3 class="card__title">Incineración sin seguro</h3><p class="card__text">Desde 1.500 €: recogida, féretro de incineración, trámites y urna básica. Sala y tasa de crematorio, aparte si las hay.</p></article>
+          <article class="card"><h3 class="card__title">Entierro con nicho propio</h3><p class="card__text">Desde 2.900 € más tasas del cementerio de {name}. Sin compra de sepultura nueva.</p></article>
+          <article class="card"><h3 class="card__title">Hospital + velatorio</h3><p class="card__text">Se suma la sala. Cifra cerrada por escrito antes de reservar en {name}.</p></article>
+        </div>
+        <p class="price-note">No incluido en el «desde»: tasas municipales, horas extra de sala, flores, esquelas y urna distinta de la básica. <a href="{L(px,'blog/ayudas-gastos-funerarios/')}">Ayudas para gastos funerarios</a> · <a href="{L(px, c['slug']+'/')}">Funeraria en {name}</a> · <a href="{L(px, 'tanatorio-'+c['slug']+'/')}">Tanatorio</a></p>
+      </div>
+    </section>'''
         pfaq = [
           (f"¿Cuánto cuesta una incineración en {name}?", "La incineración parte desde 1.500 €, con trámites incluidos y presupuesto cerrado por escrito."),
           (f"¿Cuánto cuesta un entierro en {name}?", "La inhumación parte desde 2.900 € (sin contar la sepultura). Le detallamos cada concepto, sin cargos ocultos."),
@@ -503,7 +515,7 @@ def run(g):
         return f'<h2 class="help-h2">{title}</h2><div class="faq">{items}</div>'
 
     help_body = (
-      page_hero("Necesito ayuda","Respuestas claras a las dudas más frecuentes en un momento difícil.", photo=False) +
+      page_hero("Necesito ayuda","Respuestas claras a las dudas más frecuentes en un momento difícil.") +
       crumbs_html(px, [("Inicio",""),("Necesito ayuda","necesito-ayuda/")]) +
       '<section class="section"><div class="container" style="max-width:820px">' +
       '<p class="prose-lead">Sabemos que cuando fallece un ser querido surgen muchas preguntas y pocas respuestas. Aquí reunimos, de forma breve y clara, lo que más nos consultan las familias. Y si necesita hablar con alguien ahora mismo, estamos a una llamada.</p>' +
@@ -568,7 +580,7 @@ def run(g):
             </div>
           </a>''' for p in BLOG_POSTS)
     body = (
-      page_hero("Blog · Guías y consejos","Información útil y cercana para acompañarle en cada situación.", photo=False) +
+      page_hero("Blog · Guías y consejos","Información útil y cercana para acompañarle en cada situación.") +
       crumbs_html(px, [("Inicio",""),("Blog","blog/")]) +
       '<section class="section"><div class="container"><div class="post-grid">' + cards + '</div></div></section>' +
       cta_band(px)
@@ -625,7 +637,7 @@ def run(g):
     # ============================== CONTACTO / QUIENES SOMOS ==============================
     px = prefix_for("contacto/")
     body = (
-      page_hero("Contacto","Estamos a su lado las 24 horas. Llámenos o escríbanos.", photo=False) +
+      page_hero("Contacto","Estamos a su lado las 24 horas. Llámenos o escríbanos.") +
       crumbs_html(px, [("Inicio",""),("Contacto","contacto/")]) +
       f'''<section class="section" id="quienes-somos"><div class="container media">
         <div class="media__img"><img src="{px}assets/equipo.jpg" alt="Espacio de atención sereno y acogedor con luz natural cálida" loading="lazy" /></div>

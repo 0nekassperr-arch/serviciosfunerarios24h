@@ -225,7 +225,7 @@ img { max-width: 100%; height: auto; display: block; }
     center / cover no-repeat;
   background-image:
     linear-gradient(180deg, rgba(43, 36, 30, 0.60) 0%, rgba(43, 36, 30, 0.74) 100%),
-    url("assets/hero-serenidad.jpg");
+    url("/assets/hero-serenidad.jpg");
 }
 .hero--mostoles {
   background-image:
@@ -277,7 +277,7 @@ img { max-width: 100%; height: auto; display: block; }
     center / cover no-repeat;
   background-image:
     linear-gradient(160deg, rgba(43, 36, 30, 0.82) 0%, rgba(43, 36, 30, 0.88) 100%),
-    url("assets/camino-sereno.jpg");
+    url("/assets/camino-sereno.jpg");
 }
 .urgency__inner { text-align: center; }
 .urgency__flag {
