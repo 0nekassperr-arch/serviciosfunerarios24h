@@ -41,13 +41,20 @@ def run(g):
     ]
 
     PRECIOS = [
-        {"slug":"madrid","name":"Madrid"},
-        {"slug":"mostoles","name":"Móstoles"},
-        {"slug":"fuenlabrada","name":"Fuenlabrada"},
-        {"slug":"getafe","name":"Getafe"},
-        {"slug":"alcorcon","name":"Alcorcón"},
-        {"slug":"leganes","name":"Leganés"},
-        {"slug":"toledo","name":"Toledo"},
+        {"slug":"madrid","name":"Madrid",
+         "local":"En Madrid capital el precio final depende mucho del distrito, del tanatorio (M-30 o Sur) y de las tasas del cementerio elegido. La incineración parte de 1.500 €; un servicio con sala en tanatorio de la capital suele encarecerse por la hora de sala y el traslado."},
+        {"slug":"mostoles","name":"Móstoles",
+         "local":"En Móstoles el velatorio se coordina en el Tanatorio Municipal (Camino de los Leñeros). Las tasas de cementerio municipal y, si hay incineración, el crematorio de Fuenlabrada (M-506) entran como partidas aparte en el presupuesto. Incineración desde 1.500 €."},
+        {"slug":"fuenlabrada","name":"Fuenlabrada",
+         "local":"Fuenlabrada tiene tanatorio y crematorio en el mismo recinto (M-506, junto al cementerio). Eso suele abaratar respecto a municipios que tienen que desplazar el cuerpo a otro crematorio. Incineración desde 1.500 €, con sala en el propio recinto si hay disponibilidad."},
+        {"slug":"getafe","name":"Getafe",
+         "local":"En Getafe el tanatorio está en la Carretera del Cementerio. Las familias de Pinto y Parla también usan este recinto, así que en fechas señaladas conviene reservar sala cuanto antes. Incineración desde 1.500 €; el crematorio más cercano con horarios amplios es el de Fuenlabrada."},
+        {"slug":"alcorcon","name":"Alcorcón",
+         "local":"En Alcorcón el tanatorio está en la Av. de Villaviciosa, junto al cementerio. El Hospital Fundación Alcorcón es el origen más habitual de las recogidas. Incineración desde 1.500 €; el crematorio de Fuenlabrada queda a pocos minutos por la M-50."},
+        {"slug":"leganes","name":"Leganés",
+         "local":"En Leganés el coste varía si el velatorio es en el tanatorio municipal o se desplaza a Getafe/Fuenlabrada (más salas y crematorio). Recogidas frecuentes en el Hospital Severo Ochoa. Incineración desde 1.500 €."},
+        {"slug":"toledo","name":"Toledo",
+         "local":"En Toledo el presupuesto incluye a menudo un traslado desde el Hospital Universitario o desde pueblos de la comarca. Las tasas de cementerio y tanatorio de la provincia son distintas a las de Madrid Sur; se las desglosamos por escrito. Incineración desde 1.500 €."},
     ]
 
     TANATORIO_LOCAL = {
@@ -86,19 +93,31 @@ def run(g):
             "addr": "La mayoría de velatorios de Pinto se celebran en Getafe (Carretera del Cementerio, s/n)",
             "local": "Pinto no tiene un gran tanatorio-crematorio propio. Las familias velan casi siempre en el Tanatorio de Getafe (Carretera del Cementerio, s/n, 10–15 minutos) o en Fuenlabrada (M-506), que sí tiene crematorio. Hacemos la recogida en Pinto —domicilio, residencia o el Hospital de Getafe— y reservamos la sala en el recinto que elija la familia.",
         },
+        "madrid": {
+            "place": "Tanatorios de Madrid capital",
+            "addr": "Tanatorio M-30 (Ciudad Lineal) y Tanatorio Sur; también salas en hospitales y distritos",
+            "local": "En Madrid capital el velatorio se organiza sobre todo en el Tanatorio M-30 (Ciudad Lineal) o en el Tanatorio Sur, según el distrito y la disponibilidad. Recogemos en La Paz, Gregorio Marañón, 12 de Octubre, Clínico San Carlos, en residencias y en el domicilio, a cualquier hora. Coordinamos sala, traslado a crematorio e inhumación en el cementerio que indique la familia.",
+        },
+        "toledo": {
+            "place": "Tanatorios de Toledo y comarca",
+            "addr": "Tanatorios de Toledo capital y municipios de la provincia; Hospital Universitario de Toledo",
+            "local": "En Toledo coordinamos el velatorio en las instalaciones de la capital o de la comarca, según donde esté la familia. Recogida 24 h en el Hospital Universitario de Toledo, en Santa Bárbara, Buenavista, el Polígono, el casco histórico, el domicilio o una residencia. Trámites, sala e incineración o entierro en el cementerio que elijan.",
+        },
+        "arroyomolinos": {
+            "place": "Tanatorio para familias de Arroyomolinos",
+            "addr": "El velatorio habitual es el Tanatorio Municipal de Móstoles (Camino de los Leñeros, s/n), a unos 10–15 minutos",
+            "local": "Arroyomolinos no tiene un gran tanatorio-crematorio propio. Las familias velan casi siempre en Móstoles (Camino de los Leñeros) o en Alcorcón (Av. de Villaviciosa). Recogemos en el domicilio, urbanizaciones y residencias de Arroyomolinos las 24 horas y reservamos la sala. El crematorio más usado es el de Fuenlabrada (M-506).",
+        },
+        "villaviciosa-de-odon": {
+            "place": "Tanatorio para familias de Villaviciosa de Odón",
+            "addr": "Cementerio municipal de Villaviciosa y tanatorios de Alcorcón (Av. de Villaviciosa) y Móstoles",
+            "local": "En Villaviciosa de Odón coordinamos el velatorio en el entorno del cementerio municipal o, si hace falta más sala o crematorio, en Alcorcón (Av. de Villaviciosa, s/n) o Móstoles (Camino de los Leñeros). Recogida 24 h en el casco, urbanizaciones y residencias. El Hospital Fundación Alcorcón queda a pocos minutos.",
+        },
     }
     for c in TANATORIO:
         extra = TANATORIO_LOCAL.get(c["slug"])
         if extra:
             c.update(extra)
-
-    THIN_NOINDEX = set()
-    for c in TANATORIO:
-        if not c.get("local"):
-            THIN_NOINDEX.add(f"tanatorio-{c['slug']}/")
-    for c in PRECIOS:
-        THIN_NOINDEX.add(f"precios-funeraria-{c['slug']}/")
-    THIN_NOINDEX.update({"arroyomolinos/", "villaviciosa-de-odon/"})
 
     # ============================== SERVICIOS ==============================
     px = prefix_for("servicios/")
@@ -246,14 +265,15 @@ def run(g):
        '<h2 class="section__title">Velatorio y tanatorio en su localidad</h2>'
        '<p class="section__subtitle">Coordinamos la sala de velatorio y todo el servicio en el tanatorio de su ciudad.</p>'
        '<p style="line-height:2.4">'
-       + " · ".join(f'<a href="{L(px, "tanatorio-"+c["slug"]+"/")}">Tanatorio en {c["name"]}</a>' for c in TANATORIO if c.get("local"))
+       + " · ".join(f'<a href="{L(px, "tanatorio-"+c["slug"]+"/")}">Tanatorio en {c["name"]}</a>' for c in TANATORIO)
        + '</p></div></section>') +
       ('<section class="section"><div class="container" style="text-align:center">'
-       '<span class="section__eyebrow">Precios</span>'
-       '<h2 class="section__title">Precios funerarios claros</h2>'
-       '<p class="section__subtitle">Incineración desde 1.500 €, entierro y traslados. Presupuesto por escrito.</p>'
-       f'<p><a href="{L(px, "servicios/")}">Ver servicios y tarifas →</a></p>'
-       '</div></section>') +
+       '<span class="section__eyebrow">Precios por ciudad</span>'
+       '<h2 class="section__title">Precios funerarios por localidad</h2>'
+       '<p class="section__subtitle">Tarifas claras de incineración, entierro y traslados en su ciudad.</p>'
+       '<p style="line-height:2.4">'
+       + " · ".join(f'<a href="{L(px, "precios-funeraria-"+c["slug"]+"/")}">Precios en {c["name"]}</a>' for c in PRECIOS)
+       + '</p></div></section>') +
       cta_band(px)
     )
     page("zonas/",
@@ -346,8 +366,7 @@ def run(g):
                "areaServed":{"@type":"City","name":name},"telephone":PHONE_TEL,"url":BASE_URL+"/"+route,
                "priceRange":"€€"},
               faq_schema(zfaq)],
-             og_image="assets/camino-sereno.jpg",
-             robots=("noindex, follow" if route in THIN_NOINDEX else "index, follow, max-image-preview:large"))
+             og_image="assets/camino-sereno.jpg")
         routes.append(route)
 
     # ============================== TANATORIO EN [CIUDAD] ==============================
@@ -435,8 +454,7 @@ def run(g):
               {"@context":"https://schema.org","@type":"FuneralHome","name":f"{SITE_NAME} · Tanatorio en {name}",
                "areaServed":{"@type":"City","name":name},"telephone":PHONE_TEL,"url":BASE_URL+"/"+route,"priceRange":"€€"},
               faq_schema(tfaq)],
-             og_image="assets/blog-tanatorio.jpg",
-             robots=("noindex, follow" if route in THIN_NOINDEX else "index, follow, max-image-preview:large"))
+             og_image="assets/blog-tanatorio.jpg")
         routes.append(route)
 
     # ============================== PRECIOS FUNERARIOS POR CIUDAD ==============================
@@ -462,6 +480,8 @@ def run(g):
             <li><strong>Producto:</strong> féretro o urna, flores, esquelas y recordatorios.</li>
             <li><strong>Tasas y terceros:</strong> crematorio, sala de velatorio y tasas del cementerio de {name}.</li>
           </ul>
+          <h3>Particularidades de {name}</h3>
+          <p>{c.get("local", f"En {name} el importe final depende del tipo de despedida, la sala de velatorio y las tasas municipales.")}</p>
           <h3>¿Y si no hay seguro de decesos?</h3>
           <p>Es muy habitual. En {name} ofrecemos servicios ajustados y opciones de financiación para que el coste nunca sea un problema añadido. Además, le informamos de las posibles <a href="{L(px,'blog/ayudas-gastos-funerarios/')}">ayudas para gastos funerarios</a>.</p>
         </div></section>'''
@@ -483,8 +503,7 @@ def run(g):
              [org_schema(),
               breadcrumb([("Inicio",""),("Zonas","zonas/"),(f"Precios en {name}", route)]),
               {"@context":"https://schema.org","@type":"Service","name":f"Servicios funerarios en {name}","areaServed":{"@type":"City","name":name},"provider":{"@type":"FuneralHome","name":SITE_NAME},"offers":{"@type":"Offer","price":"1500","priceCurrency":"EUR"}},
-              faq_schema(pfaq)],
-             robots="noindex, follow")
+              faq_schema(pfaq)])
         routes.append(route)
 
     # ============================== NECESITO AYUDA ==============================
@@ -756,7 +775,7 @@ def run(g):
     # ============================== SITEMAP + ROBOTS + CNAME ==============================
     today = g["datetime"].date.today().isoformat() if "datetime" in g else __import__("datetime").date.today().isoformat()
     # Excluir del sitemap las páginas legales (no interesa priorizar su indexación)
-    EXCLUDE = {"aviso-legal/", "privacidad/", "cookies/"} | THIN_NOINDEX
+    EXCLUDE = {"aviso-legal/", "privacidad/", "cookies/"}
     urls=[]
     for r in routes:
         if r in EXCLUDE:

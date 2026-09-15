@@ -24,22 +24,23 @@ ADDR_PROV  = "Madrid"
 ADDR_CC    = "ES"
 
 def address_line():
-    """NAP visible: nunca mostrar 'Calle de Ejemplo'."""
+    """NAP visible. Sin calle inventada y sin clavar Móstoles en páginas de otras ciudades."""
     if ADDR_STREET and "ejemplo" not in ADDR_STREET.lower():
         return f"{ADDR_STREET}, {ADDR_ZIP} {ADDR_CITY} ({ADDR_PROV})"
-    return f"{ADDR_CITY} ({ADDR_PROV}) · Madrid Sur"
+    return "Madrid Sur"
 
 def schema_address():
     addr = {
         "@type": "PostalAddress",
-        "addressLocality": ADDR_CITY,
+        "addressLocality": "Madrid Sur",
         "addressRegion": ADDR_PROV,
         "addressCountry": ADDR_CC,
     }
-    if ADDR_ZIP:
-        addr["postalCode"] = ADDR_ZIP
     if ADDR_STREET and "ejemplo" not in ADDR_STREET.lower():
         addr["streetAddress"] = ADDR_STREET
+        addr["addressLocality"] = ADDR_CITY
+        if ADDR_ZIP:
+            addr["postalCode"] = ADDR_ZIP
     return addr
 LEGAL_NAME = "[Razón social / Titular]"   # ⚠ placeholder
 LEGAL_NIF  = "[NIF / CIF]"                # ⚠ placeholder
@@ -59,27 +60,27 @@ ZONES = [
      "hero_sub":"Atención funeraria 24 horas en Alcorcón, con trato cercano y presupuestos claros.",
      "landmarks":"el Hospital Universitario Fundación Alcorcón, el Tanatorio de Alcorcón y barrios como Parque Lisboa, San José de Valderas o Las Retamas",
      "intro":"En Alcorcón acompañamos a las familias en cualquier circunstancia, ya sea un fallecimiento en el domicilio, en el Hospital Universitario Fundación Alcorcón o en una residencia. Coordinamos cada detalle para que usted solo tenga que ocuparse de despedirse.",
-     "extra":"Alcorcón es una ciudad con fuerte sentido de comunidad, y creemos que un servicio funerario debe estar a la altura: cercano, humano y sin sorpresas en el precio."},
+     "extra":"Alcorcón es una ciudad con fuerte sentido de comunidad. El velatorio se coordina en el tanatorio de la Av. de Villaviciosa, junto al cementerio; el crematorio habitual es el de Fuenlabrada."},
     {"slug":"fuenlabrada","name":"Fuenlabrada","home_clone":False,
      "hero_sub":"Servicios funerarios 24 horas en Fuenlabrada, con acompañamiento humano y tarifas transparentes.",
      "landmarks":"el Hospital Universitario de Fuenlabrada, el Cementerio y Tanatorio municipal y zonas como Loranca, El Vivero o La Serna",
      "intro":"Atendemos a las familias de Fuenlabrada las 24 horas del día. Si el fallecimiento se produce en el Hospital Universitario de Fuenlabrada, en casa o en una residencia, coordinamos el traslado y todos los preparativos con rapidez y respeto.",
-     "extra":"Fuenlabrada es uno de los municipios más jóvenes y dinámicos del sur de Madrid; ofrecemos un servicio moderno pero cálido, pensado para cada familia."},
+     "extra":"Fuenlabrada cuenta con tanatorio y crematorio en el recinto de la M-506, junto al cementerio municipal. Recogemos en el Hospital Universitario, Loranca, El Vivero y La Serna."},
     {"slug":"leganes","name":"Leganés","home_clone":False,
      "hero_sub":"Asistencia funeraria 24 horas en Leganés, con cercanía y precios sin sorpresas.",
      "landmarks":"el Hospital Severo Ochoa, el Tanatorio de Leganés y barrios como Zarzaquemada, Leganés Norte o San Nicasio",
      "intro":"En Leganés estamos disponibles a cualquier hora para orientarle y gestionar el servicio funerario que necesite. Trabajamos con especial cuidado en los fallecimientos en el Hospital Severo Ochoa, en domicilios y en residencias de la zona.",
-     "extra":"Leganés combina historia y modernidad, y así entendemos nosotros el acompañamiento: respetando la tradición de cada familia con un servicio actual y transparente."},
+     "extra":"En Leganés las recogidas más frecuentes son en el Hospital Severo Ochoa, Zarzaquemada y Leganés Norte. El velatorio se coordina en el tanatorio municipal o, si hace falta más sala, en Getafe o Fuenlabrada."},
     {"slug":"getafe","name":"Getafe","home_clone":False,
      "hero_sub":"Servicios funerarios 24 horas en Getafe, con trato humano y tarifas claras.",
      "landmarks":"el Hospital Universitario de Getafe, el Cementerio y Tanatorio municipal y barrios como Sector III, Las Margaritas o Getafe Norte",
      "intro":"Acompañamos a las familias de Getafe en todo momento. Ya sea un fallecimiento en el Hospital Universitario de Getafe, en el domicilio o en una residencia, coordinamos cada gestión para que todo se resuelva con serenidad.",
-     "extra":"Getafe es una ciudad con arraigo y carácter; ofrecemos un servicio a su altura, cercano y sin costes ocultos."},
+     "extra":"El tanatorio de Getafe está en la Carretera del Cementerio, junto al camposanto. También acuden familias de Pinto y Parla. Recogemos en el Hospital Universitario de Getafe las 24 horas."},
     {"slug":"arroyomolinos","name":"Arroyomolinos","home_clone":False,
      "hero_sub":"Atención funeraria 24 horas en Arroyomolinos, cercana y con precios transparentes.",
      "landmarks":"el centro urbano, las urbanizaciones residenciales de reciente construcción y su entorno familiar",
      "intro":"En Arroyomolinos ofrecemos un servicio funerario cercano las 24 horas. Coordinamos el traslado desde el domicilio, hospital o residencia y nos encargamos de todos los preparativos y trámites.",
-     "extra":"Arroyomolinos ha crecido mucho en los últimos años; damos un servicio a medida de sus familias, con la calidez de lo local y la seriedad de un equipo profesional."},
+     "extra":"Arroyomolinos no tiene un gran tanatorio propio: el velatorio se organiza casi siempre en Móstoles (Camino de los Leñeros) o Alcorcón. Recogemos en urbanizaciones y residencias las 24 horas."},
     {"slug":"villaviciosa-de-odon","name":"Villaviciosa de Odón","home_clone":False,
      "hero_sub":"Servicios funerarios 24 horas en Villaviciosa de Odón, con cercanía y precios transparentes.",
      "landmarks":"el casco urbano, las urbanizaciones residenciales, el cementerio municipal y su entorno tranquilo",
@@ -89,22 +90,22 @@ ZONES = [
      "hero_sub":"Servicios funerarios 24 horas en Madrid capital, con atención inmediata y tarifas claras.",
      "landmarks":"los grandes hospitales (La Paz, Gregorio Marañón, 12 de Octubre, Clínico San Carlos), los tanatorios de la M-30 y Sur, y todos los distritos de la ciudad",
      "intro":"En Madrid capital atendemos a las familias a cualquier hora del día. Si el fallecimiento se produce en uno de los grandes hospitales, en el domicilio o en una residencia, coordinamos el traslado y la organización completa del servicio.",
-     "extra":"Madrid es una ciudad grande y diversa; ofrecemos un trato cercano y humano, con precios transparentes, en cualquier distrito."},
+     "extra":"En Madrid capital coordinamos velatorio en el Tanatorio M-30 o en el Tanatorio Sur, según el distrito. Recogida en los grandes hospitales y en el domicilio."},
     {"slug":"toledo","name":"Toledo","home_clone":False,
      "hero_sub":"Servicios funerarios 24 horas en Toledo y su comarca, cercanos y con precios transparentes.",
      "landmarks":"el Hospital Universitario de Toledo, el casco histórico, los barrios de Santa Bárbara, Buenavista y el Polígono, y los pueblos de alrededor",
      "intro":"En Toledo y su comarca ofrecemos atención funeraria las 24 horas. Coordinamos el traslado desde el Hospital Universitario de Toledo, el domicilio o residencias, y nos encargamos de todos los preparativos y trámites.",
-     "extra":"Toledo une historia y cercanía; damos un servicio respetuoso con la tradición de cada familia y transparente en el precio."},
+     "extra":"En Toledo y su comarca la recogida más habitual es el Hospital Universitario de Toledo. Coordinamos tanatorio en la capital o en el pueblo, y el traslado si la despedida es en Madrid."},
     {"slug":"parla","name":"Parla","home_clone":False,
      "hero_sub":"Servicios funerarios 24 horas en Parla, cercanos y con precios transparentes.",
      "landmarks":"el Hospital Infanta Cristina, el centro urbano y barrios como Parla Este",
      "intro":"En Parla acompañamos a las familias las 24 horas, ya sea un fallecimiento en el domicilio, en una residencia o en el Hospital Infanta Cristina. Coordinamos el traslado y todos los preparativos con rapidez y respeto.",
-     "extra":"Parla es una ciudad joven y cercana; ofrecemos un servicio a su medida, humano y sin sorpresas en el precio."},
+     "extra":"En Parla el velatorio se organiza en el recinto del cementerio (Av. Juan Carlos I) o en Getafe si se necesita más sala. Recogemos en el Hospital Infanta Cristina y en Parla Este."},
     {"slug":"pinto","name":"Pinto","home_clone":False,
      "hero_sub":"Servicios funerarios 24 horas en Pinto, con trato cercano y tarifas claras.",
      "landmarks":"el centro urbano, el cementerio municipal y su entorno, con el Hospital de Getafe muy próximo",
      "intro":"En Pinto ofrecemos atención funeraria las 24 horas. Coordinamos el traslado desde el domicilio, la residencia o el hospital, y nos encargamos de todos los preparativos y trámites.",
-     "extra":"Pinto combina tranquilidad y buena comunicación; damos un servicio profesional y transparente para sus familias."},
+     "extra":"Pinto no tiene un gran tanatorio-crematorio: las familias velan en Getafe (10–15 minutos) o en Fuenlabrada. Recogemos en Pinto y en el Hospital de Getafe."},
 ]
 ZONE_NAMES = [z["name"] for z in ZONES]
 
@@ -226,8 +227,8 @@ def footer(route):
       <div class="footer__inner footer__inner--wide">
         <div class="footer__col">
           <img class="footer__logo" src="{L(prefix,'')}assets/logo-mark.png" alt="Servicios Funerarios 24h" width="70" height="70" onerror="this.style.display='none'" />
-          <span class="brand__name">{BRAND}</span>
-          <p class="footer__tag">Servicios funerarios 24 horas en Móstoles y todo el sur de Madrid. Atención inmediata, cercana y con precios transparentes.</p>
+          <span class="brand__name">{SITE_NAME}</span>
+          <p class="footer__tag">Servicios funerarios 24 horas en el sur de Madrid. Atención inmediata, cercana y con precios transparentes.</p>
           <p class="footer__nap">
             <a href="tel:{PHONE_TEL}">📞 {PHONE_DISP}</a><br>
             <a href="mailto:{EMAIL}">✉ {EMAIL}</a><br>
@@ -268,7 +269,7 @@ def footer(route):
           </nav>
         </div>
       </div>
-      <p class="footer__bottom">© {YEAR} {BRAND} · Todos los derechos reservados.</p>
+      <p class="footer__bottom">© {YEAR} {SITE_NAME} · Todos los derechos reservados.</p>
     </div>
   </footer>
 """
