@@ -17,11 +17,30 @@ PHONE_DISP = "910 000 000"
 PHONE_TEL  = "+34910000000"
 WHATSAPP   = "+34600000000"          # ⚠ placeholder
 EMAIL      = "info@serviciosfunerarios24h.es"
-ADDR_STREET= "Calle de Ejemplo 1"    # ⚠ placeholder
+ADDR_STREET= ""                      # sin calle inventada (Google la trata como señal de negocio falso)
 ADDR_ZIP   = "28934"
 ADDR_CITY  = "Móstoles"
 ADDR_PROV  = "Madrid"
 ADDR_CC    = "ES"
+
+def address_line():
+    """NAP visible: nunca mostrar 'Calle de Ejemplo'."""
+    if ADDR_STREET and "ejemplo" not in ADDR_STREET.lower():
+        return f"{ADDR_STREET}, {ADDR_ZIP} {ADDR_CITY} ({ADDR_PROV})"
+    return f"{ADDR_CITY} ({ADDR_PROV}) · Madrid Sur"
+
+def schema_address():
+    addr = {
+        "@type": "PostalAddress",
+        "addressLocality": ADDR_CITY,
+        "addressRegion": ADDR_PROV,
+        "addressCountry": ADDR_CC,
+    }
+    if ADDR_ZIP:
+        addr["postalCode"] = ADDR_ZIP
+    if ADDR_STREET and "ejemplo" not in ADDR_STREET.lower():
+        addr["streetAddress"] = ADDR_STREET
+    return addr
 LEGAL_NAME = "[Razón social / Titular]"   # ⚠ placeholder
 LEGAL_NIF  = "[NIF / CIF]"                # ⚠ placeholder
 YEAR       = datetime.date.today().year
@@ -35,7 +54,7 @@ ZONES = [
      "hero_sub":"Servicios funerarios 24 horas en Móstoles, con atención inmediata, trato cercano y precios transparentes.",
      "landmarks":"el Hospital Universitario de Móstoles, el Tanatorio de Móstoles y barrios como El Soto, Parque Coimbra o Las Cumbres",
      "intro":"En Móstoles acompañamos a las familias en cualquier circunstancia, ya sea un fallecimiento en el domicilio, en el Hospital Universitario de Móstoles o en una residencia. Coordinamos cada detalle para que usted solo tenga que ocuparse de despedirse.",
-     "extra":"Móstoles es la ciudad más grande del sur de Madrid; ofrecemos un servicio cercano, humano y sin sorpresas en el precio."},
+     "extra":"Móstoles es la ciudad más grande del sur de Madrid; ofrecemos un servicio cercano, humano y sin sorpresas en el precio. El velatorio se coordina en el Tanatorio Municipal (Camino de los Leñeros). El crematorio más usado por las familias de Móstoles es el de Fuenlabrada (M-506), a 15–20 minutos."},
     {"slug":"alcorcon","name":"Alcorcón","home_clone":False,
      "hero_sub":"Atención funeraria 24 horas en Alcorcón, con trato cercano y presupuestos claros.",
      "landmarks":"el Hospital Universitario Fundación Alcorcón, el Tanatorio de Alcorcón y barrios como Parque Lisboa, San José de Valderas o Las Retamas",
@@ -212,7 +231,7 @@ def footer(route):
           <p class="footer__nap">
             <a href="tel:{PHONE_TEL}">📞 {PHONE_DISP}</a><br>
             <a href="mailto:{EMAIL}">✉ {EMAIL}</a><br>
-            <span>📍 {ADDR_STREET}, {ADDR_ZIP} {ADDR_CITY} ({ADDR_PROV})</span>
+            <span>📍 {address_line()}</span>
           </p>
         </div>
         <div class="footer__col">
@@ -303,8 +322,7 @@ def org_schema():
         "name": SITE_NAME, "url": BASE_URL, "image": BASE_URL+"/assets/hero-serenidad.jpg",
         "logo": BASE_URL+"/assets/favicon-512.png",
         "telephone": PHONE_TEL, "email": EMAIL, "priceRange":"€€",
-        "address":{"@type":"PostalAddress","streetAddress":ADDR_STREET,"postalCode":ADDR_ZIP,
-                   "addressLocality":ADDR_CITY,"addressRegion":ADDR_PROV,"addressCountry":ADDR_CC},
+        "address": schema_address(),
         "areaServed":[{"@type":"City","name":n} for n in ZONE_NAMES],
         "openingHoursSpecification":[{"@type":"OpeningHoursSpecification",
             "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
@@ -561,7 +579,17 @@ HOME_BODY = r'''
           <a class="zone-chip" href="{P}fuenlabrada/">Fuenlabrada</a>
           <a class="zone-chip" href="{P}leganes/">Leganés</a>
           <a class="zone-chip" href="{P}getafe/">Getafe</a>
-          <a class="zone-chip" href="{P}arroyomolinos/">Arroyomolinos</a>
+          <a class="zone-chip" href="{P}parla/">Parla</a>
+          <a class="zone-chip" href="{P}pinto/">Pinto</a>
+        </nav>
+        <p class="section__subtitle" style="margin-top:18px">Tanatorio y velatorio:</p>
+        <nav class="zones" aria-label="Tanatorios">
+          <a class="zone-chip" href="{P}tanatorio-fuenlabrada/">Tanatorio Fuenlabrada</a>
+          <a class="zone-chip" href="{P}tanatorio-getafe/">Tanatorio Getafe</a>
+          <a class="zone-chip" href="{P}tanatorio-pinto/">Tanatorio Pinto</a>
+          <a class="zone-chip" href="{P}tanatorio-parla/">Tanatorio Parla</a>
+          <a class="zone-chip" href="{P}tanatorio-mostoles/">Tanatorio Móstoles</a>
+          <a class="zone-chip" href="{P}tanatorio-alcorcon/">Tanatorio Alcorcón</a>
         </nav>
         <p class="section__subtitle" style="margin-top:22px">
           <a href="{P}zonas/">Ver todas las zonas donde trabajamos →</a>

@@ -387,8 +387,8 @@ BLOG_POSTS = [
 },
 {
  "slug":"repatriacion-de-fallecidos",
- "title":"Repatriación de un fallecido: trámites, tiempos y costes",
- "description":"Repatriación de fallecidos desde o hacia España: qué es, qué trámites y documentación se necesitan, cuánto tarda y cuánto cuesta. Le acompañamos en todo el proceso.",
+ "title":"Quién paga la repatriación de un cadáver: trámites, tiempos y costes",
+ "description":"Quién paga la repatriación de un cadáver: familia, seguro de decesos o consulado. Trámites, tiempos y costes desde o hacia España. Le acompañamos en todo el proceso.",
  "category":"Trámites",
  "date":"2026-08-04","date_h":"4 de agosto de 2026",
  "image":"assets/blog-repatriacion.jpg",
@@ -413,6 +413,16 @@ BLOG_POSTS = [
 
 <h2>¿Cuánto tarda?</h2>
 <p>Depende del país y de la obtención de la documentación consular, pero suele oscilar entre <strong>3 y 7 días</strong>. En traslados nacionales, el proceso es bastante más rápido.</p>
+
+<h2>¿Quién paga la repatriación de un cadáver?</h2>
+<p>Es la pregunta más frecuente. No hay una sola respuesta: depende de si hay seguro, de dónde ocurrió el fallecimiento y de los familiares.</p>
+<ul>
+  <li><strong>Seguro de decesos o de viaje con repatriación:</strong> si la póliza lo cubre, paga la aseguradora (hasta el capital contratado). Revise la póliza o llámenos y lo comprobamos por usted. Es la vía más habitual.</li>
+  <li><strong>La familia:</strong> si no hay seguro, el coste lo asumen los herederos o quien encargue el traslado. Se puede fraccionar; no deje de llamarnos por ese motivo.</li>
+  <li><strong>Consulado / asistencia en el extranjero:</strong> si el fallecimiento es fuera de España y no hay seguro, el consulado español informa y puede orientar, pero <em>no paga</em> el traslado de oficio salvo supuestos muy tasados de indigencia.</li>
+  <li><strong>Empresa o mutua:</strong> en accidentes laborales o desplazamientos de empresa, a veces cubre la mutua o el seguro colectivo.</li>
+</ul>
+<p>En la práctica: primero se mira el seguro. Si no hay, se presupuesta el traslado y se decide. Nosotros tramitamos la documentación en cualquier caso.</p>
 
 <h2>¿Cuánto cuesta?</h2>
 <p>El coste varía según el destino, la distancia y el medio de transporte. Los <strong>traslados nacionales</strong> parten desde unos 900 €, y las repatriaciones internacionales se presupuestan a medida. Si la persona tenía <strong>seguro de decesos con cobertura de repatriación</strong>, gran parte del coste puede estar cubierto: lo revisamos por usted.</p>
