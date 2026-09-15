@@ -157,8 +157,12 @@ def run(g):
     }
 
     # ============================== SERVICIOS ==============================
+    BTN_CALL = (
+        f'<a class="btn btn--primary btn--xl" href="tel:{PHONE_TEL}" data-track="hero-call">'
+        f'📞 LLAMAR AHORA · 24h</a>'
+    )
     px = prefix_for("servicios/")
-    price_grid = '''<section class="section" aria-labelledby="precios-title">
+    price_grid = '''<section class="section" id="precios" aria-labelledby="precios-title">
       <div class="container">
         <span class="section__eyebrow">Tarifas orientativas</span>
         <h2 id="precios-title" class="section__title">Precios claros, desde el primer momento</h2>
@@ -166,7 +170,7 @@ def run(g):
         <div class="price-grid">
           <div class="price-card price-card--featured">
             <h3>Incineración</h3>
-            <p class="price-card__price">1.500€ <small>desde · IVA incluido</small></p>
+            <p class="price-card__price"><small>Desde</small> 1.500€ <small>IVA incluido</small></p>
             <ul>
               <li>Recogida y traslado del fallecido</li>
               <li>Féretro para incineración</li>
@@ -178,7 +182,7 @@ def run(g):
           </div>
           <div class="price-card">
             <h3>Inhumación</h3>
-            <p class="price-card__price">2.900€ <small>desde · sin sepultura</small></p>
+            <p class="price-card__price"><small>Desde</small> 2.900€ <small>sin sepultura</small></p>
             <ul>
               <li>Recogida y traslado del fallecido</li>
               <li>Féretro de inhumación</li>
@@ -190,7 +194,7 @@ def run(g):
           </div>
           <div class="price-card">
             <h3>Servicio completo</h3>
-            <p class="price-card__price">A medida <small>presupuesto personalizado</small></p>
+            <p class="price-card__price"><small>Desde</small> a medida <small>presupuesto personalizado</small></p>
             <ul>
               <li>Velatorio y sala tanatorio</li>
               <li>Ceremonia religiosa o civil</li>
@@ -254,7 +258,8 @@ def run(g):
     body = (
       page_hero("Servicios funerarios en Móstoles y Madrid Sur",
                 "Un servicio completo, humano y transparente para acompañar a su familia en cada paso.",
-                image="assets/apoyo-familiar.jpg") +
+                image="assets/apoyo-familiar.jpg",
+                actions=BTN_CALL + '<a class="btn btn--offer" href="#precios">Ver precios <small>Desde 1.500 €</small></a>') +
       crumbs_html(px, [("Inicio",""),("Servicios","servicios/")]) +
       '''<section class="section"><div class="container prose" style="text-align:center">
         <p class="prose-lead">Ofrecemos todos los servicios funerarios que su familia puede necesitar, con atención las 24 horas del día y precios claros desde el primer momento. Nos encargamos de absolutamente todo para que usted solo tenga que ocuparse de despedirse de su ser querido.</p>
@@ -293,13 +298,14 @@ def run(g):
           </a>''' for z in ZONES)
     body = (
       page_hero("Zonas donde trabajamos","Servicios funerarios 24 horas en Móstoles y todo el sur de Madrid.",
-                image="assets/camino-sereno.jpg") +
+                image="assets/camino-sereno.jpg",
+                actions=BTN_CALL + '<a class="btn btn--offer" href="#tanatorios">Tanatorios cercanos</a>') +
       crumbs_html(px, [("Inicio",""),("Zonas","zonas/")]) +
       '''<section class="section"><div class="container">
         <p class="section__subtitle">Damos servicio en los principales municipios del sur de Madrid. Elija su localidad para conocer cómo le atendemos en su zona.</p>
         <div class="post-grid">''' + cards + '''</div>
       </div></section>''' +
-      ('<section class="section section--alt"><div class="container" style="text-align:center">'
+      ('<section class="section section--alt" id="tanatorios"><div class="container" style="text-align:center">'
        '<span class="section__eyebrow">Tanatorios por ciudad</span>'
        '<h2 class="section__title">Velatorio y tanatorio en su localidad</h2>'
        '<p class="section__subtitle">Coordinamos la sala de velatorio y todo el servicio en el tanatorio de su ciudad.</p>'
@@ -509,9 +515,9 @@ def run(g):
           <h2 class="section__title">Precios funerarios en {name}</h2>
           <p class="section__subtitle">Presupuesto cerrado y por escrito, sin cargos ocultos. Estas son las tarifas orientativas para {name}.</p>
           <div class="price-grid">
-            <div class="price-card price-card--featured"><h3>Incineración</h3><p class="price-card__price">1.500€ <small>desde · IVA incluido</small></p><ul><li>Recogida y traslado</li><li>Féretro para incineración</li><li>Trámites y licencia</li><li>Coordinación del crematorio</li><li>Urna básica</li></ul><a class="btn btn--primary btn--block" href="#formulario" data-track="precio-inci">Pedir presupuesto</a></div>
-            <div class="price-card"><h3>Inhumación</h3><p class="price-card__price">2.900€ <small>desde · sin sepultura</small></p><ul><li>Féretro de inhumación</li><li>Coche fúnebre</li><li>Trámites y licencia</li><li>Coordinación con el cementerio</li></ul><a class="btn btn--ghost btn--block" href="#formulario" data-track="precio-inhu">Pedir presupuesto</a></div>
-            <div class="price-card"><h3>Traslado</h3><p class="price-card__price">900€ <small>desde · nacional</small></p><ul><li>Traslado a otra localidad</li><li>Repatriación (a medida)</li><li>Gestión documental</li><li>Coordinación puerta a puerta</li></ul><a class="btn btn--ghost btn--block" href="#formulario" data-track="precio-tras">Pedir presupuesto</a></div>
+            <div class="price-card price-card--featured"><h3>Incineración</h3><p class="price-card__price"><small>Desde</small> 1.500€ <small>IVA incluido</small></p><ul><li>Recogida y traslado</li><li>Féretro para incineración</li><li>Trámites y licencia</li><li>Coordinación del crematorio</li><li>Urna básica</li></ul><a class="btn btn--primary btn--block" href="#formulario" data-track="precio-inci">Pedir presupuesto</a></div>
+            <div class="price-card"><h3>Inhumación</h3><p class="price-card__price"><small>Desde</small> 2.900€ <small>sin sepultura</small></p><ul><li>Féretro de inhumación</li><li>Coche fúnebre</li><li>Trámites y licencia</li><li>Coordinación con el cementerio</li></ul><a class="btn btn--ghost btn--block" href="#formulario" data-track="precio-inhu">Pedir presupuesto</a></div>
+            <div class="price-card"><h3>Traslado</h3><p class="price-card__price"><small>Desde</small> 900€ <small>nacional</small></p><ul><li>Traslado a otra localidad</li><li>Repatriación (a medida)</li><li>Gestión documental</li><li>Coordinación puerta a puerta</li></ul><a class="btn btn--ghost btn--block" href="#formulario" data-track="precio-tras">Pedir presupuesto</a></div>
           </div>
           <p class="price-note">Precios orientativos. El importe final depende de las prestaciones y de las tasas de {name}. Le entregamos siempre el presupuesto por escrito antes de contratar.</p>
         </div></section>'''
@@ -558,7 +564,8 @@ def run(g):
 
     help_body = (
       page_hero("Necesito ayuda","Respuestas claras a las dudas más frecuentes en un momento difícil.",
-                image="assets/blog-fallecimiento.jpg") +
+                image="assets/blog-fallecimiento.jpg",
+                actions='<a class="btn btn--primary btn--xl" href="#llamamos">Te guiamos paso a paso</a>') +
       crumbs_html(px, [("Inicio",""),("Necesito ayuda","necesito-ayuda/")]) +
       '<section class="section"><div class="container" style="max-width:820px">' +
       '<p class="prose-lead">Sabemos que cuando fallece un ser querido surgen muchas preguntas y pocas respuestas. Aquí reunimos, de forma breve y clara, lo que más nos consultan las familias. Y si necesita hablar con alguien ahora mismo, estamos a una llamada.</p>' +
@@ -582,7 +589,7 @@ def run(g):
         ("Quiero dejarlo todo previsto","Le ayudamos a planificar el servicio con antelación, fijando hoy las condiciones para evitar cargas futuras a su familia."),
       ]) +
       '</div></section>' +
-      cta_band(px, "¿Prefiere que le llamemos?") +
+      cta_band(px, "¿Prefiere que le llamemos?", section_id="llamamos") +
       # enlaces al blog
       '<section class="section section--alt"><div class="container">' +
       '<span class="section__eyebrow">Le puede interesar</span>' +
@@ -682,7 +689,8 @@ def run(g):
     px = prefix_for("contacto/")
     body = (
       page_hero("Contacto","Estamos a su lado las 24 horas. Llámenos o escríbanos.",
-                image="assets/equipo.jpg") +
+                image="assets/equipo.jpg",
+                actions=BTN_CALL) +
       crumbs_html(px, [("Inicio",""),("Contacto","contacto/")]) +
       f'''<section class="section" id="quienes-somos"><div class="container media">
         <div class="media__img"><img src="{px}assets/equipo.jpg" alt="Espacio de atención sereno y acogedor con luz natural cálida" loading="lazy" /></div>

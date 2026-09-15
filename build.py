@@ -357,7 +357,7 @@ def crumbs_html(prefix, items):
             parts.append(f'<a href="{L(prefix,u)}">{n}</a>')
     return '<div class="breadcrumb"><div class="container">'+ " › ".join(parts) +'</div></div>'
 
-def page_hero(title, subtitle, photo=True, image="assets/camino-sereno.jpg"):
+def page_hero(title, subtitle, photo=True, image="assets/camino-sereno.jpg", actions=""):
     """Hero interior. photo=False = degradado; si hay foto, cada página pasa la suya."""
     if photo:
         src = image if image.startswith("/") else "/" + image.lstrip("./")
@@ -370,15 +370,18 @@ def page_hero(title, subtitle, photo=True, image="assets/camino-sereno.jpg"):
         cls = "page-hero"
         style = ""
     sub = f"<p>{subtitle}</p>" if subtitle else ""
+    acts = f'<div class="hero__actions">{actions}</div>' if actions else ""
     return f'''<section class="{cls}"{style}>
       <div class="container">
         <h1>{title}</h1>
         {sub}
+        {acts}
       </div>
     </section>'''
 
-def cta_band(prefix, text="¿Necesita ayuda ahora mismo?"):
-    return f'''<section class="cta-band">
+def cta_band(prefix, text="¿Necesita ayuda ahora mismo?", section_id=""):
+    sid = f' id="{section_id}"' if section_id else ""
+    return f'''<section class="cta-band"{sid}>
       <div class="container">
         <h2>{text}</h2>
         <p>Estamos disponibles 24 horas, todos los días del año. Le atendemos de inmediato.</p>
