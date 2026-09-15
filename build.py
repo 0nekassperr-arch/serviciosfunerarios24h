@@ -357,12 +357,23 @@ def crumbs_html(prefix, items):
             parts.append(f'<a href="{L(prefix,u)}">{n}</a>')
     return '<div class="breadcrumb"><div class="container">'+ " › ".join(parts) +'</div></div>'
 
-def page_hero(title, subtitle, photo=True):
-    cls = "page-hero page-hero--photo" if photo else "page-hero"
-    return f'''<section class="{cls}">
+def page_hero(title, subtitle, photo=True, image="assets/camino-sereno.jpg"):
+    """Hero interior. photo=False = degradado; si hay foto, cada página pasa la suya."""
+    if photo:
+        src = image if image.startswith("/") else "/" + image.lstrip("./")
+        cls = "page-hero page-hero--photo"
+        style = (
+            f' style="background-image:linear-gradient(160deg, rgba(43,36,30,.78), rgba(43,36,30,.88)),'
+            f" url('{src}');background-size:cover;background-position:center;background-repeat:no-repeat;\""
+        )
+    else:
+        cls = "page-hero"
+        style = ""
+    sub = f"<p>{subtitle}</p>" if subtitle else ""
+    return f'''<section class="{cls}"{style}>
       <div class="container">
         <h1>{title}</h1>
-        <p>{subtitle}</p>
+        {sub}
       </div>
     </section>'''
 

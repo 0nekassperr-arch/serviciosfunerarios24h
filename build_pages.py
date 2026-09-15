@@ -119,6 +119,43 @@ def run(g):
         if extra:
             c.update(extra)
 
+    # Foto de hero distinta por URL (no reutilizar la misma en todas las landings)
+    CITY_HERO = {
+        "mostoles": "assets/camino-sereno.jpg",
+        "alcorcon": "assets/apoyo-familiar.jpg",
+        "fuenlabrada": "assets/hero-serenidad.jpg",
+        "leganes": "assets/blog-duelo-acompanar.jpg",
+        "getafe": "assets/blog-elegir.jpg",
+        "arroyomolinos": "assets/blog-incineracion.jpg",
+        "villaviciosa-de-odon": "assets/blog-cenizas.jpg",
+        "madrid": "assets/blog-duelo.jpg",
+        "toledo": "assets/blog-repatriacion.jpg",
+        "parla": "assets/blog-tramites.jpg",
+        "pinto": "assets/blog-tiempos.jpg",
+    }
+    TAN_HERO = {
+        "mostoles": "assets/blog-tanatorio.jpg",
+        "fuenlabrada": "assets/blog-fallecimiento.jpg",
+        "getafe": "assets/blog-esquela.jpg",
+        "alcorcon": "assets/equipo.jpg",
+        "leganes": "assets/blog-seguro-decesos.jpg",
+        "madrid": "assets/blog-testamento.jpg",
+        "parla": "assets/blog-ayudas.jpg",
+        "pinto": "assets/blog-incineracion.jpg",
+        "toledo": "assets/camino-sereno.jpg",
+        "arroyomolinos": "assets/apoyo-familiar.jpg",
+        "villaviciosa-de-odon": "assets/hero-serenidad.jpg",
+    }
+    PRECIO_HERO = {
+        "madrid": "assets/blog-ayudas.jpg",
+        "mostoles": "assets/blog-elegir.jpg",
+        "fuenlabrada": "assets/blog-seguro-decesos.jpg",
+        "getafe": "assets/blog-tramites.jpg",
+        "alcorcon": "assets/blog-tiempos.jpg",
+        "leganes": "assets/blog-cenizas.jpg",
+        "toledo": "assets/blog-duelo.jpg",
+    }
+
     # ============================== SERVICIOS ==============================
     px = prefix_for("servicios/")
     price_grid = '''<section class="section" aria-labelledby="precios-title">
@@ -216,7 +253,8 @@ def run(g):
 
     body = (
       page_hero("Servicios funerarios en Móstoles y Madrid Sur",
-                "Un servicio completo, humano y transparente para acompañar a su familia en cada paso.") +
+                "Un servicio completo, humano y transparente para acompañar a su familia en cada paso.",
+                image="assets/apoyo-familiar.jpg") +
       crumbs_html(px, [("Inicio",""),("Servicios","servicios/")]) +
       '''<section class="section"><div class="container prose" style="text-align:center">
         <p class="prose-lead">Ofrecemos todos los servicios funerarios que su familia puede necesitar, con atención las 24 horas del día y precios claros desde el primer momento. Nos encargamos de absolutamente todo para que usted solo tenga que ocuparse de despedirse de su ser querido.</p>
@@ -254,7 +292,8 @@ def run(g):
             </div>
           </a>''' for z in ZONES)
     body = (
-      page_hero("Zonas donde trabajamos","Servicios funerarios 24 horas en Móstoles y todo el sur de Madrid.") +
+      page_hero("Zonas donde trabajamos","Servicios funerarios 24 horas en Móstoles y todo el sur de Madrid.",
+                image="assets/camino-sereno.jpg") +
       crumbs_html(px, [("Inicio",""),("Zonas","zonas/")]) +
       '''<section class="section"><div class="container">
         <p class="section__subtitle">Damos servicio en los principales municipios del sur de Madrid. Elija su localidad para conocer cómo le atendemos en su zona.</p>
@@ -372,7 +411,8 @@ def run(g):
       </div>
     </section>'''
         body = (
-          page_hero(f"Funeraria en {name} · 24 horas", z["hero_sub"]) +
+          page_hero(f"Funeraria en {name} · 24 horas", z["hero_sub"],
+                    image=CITY_HERO.get(slug, "assets/camino-sereno.jpg")) +
           urgency + pasos + cobertura + local +
           faq_block(f"Preguntas frecuentes · funeraria en {name}", zfaq) +
           lead_form(px, f"Pida orientación en {name}",
@@ -440,7 +480,8 @@ def run(g):
     </section>'''
         body = (
           page_hero(f"Tanatorio en {name}",
-                    f"Dirección del recinto, cómo llegar y reserva de sala 24 h en {name}.") +
+                    f"Dirección del recinto, cómo llegar y reserva de sala 24 h en {name}.",
+                    image=TAN_HERO.get(c["slug"], "assets/blog-tanatorio.jpg")) +
           urg_t + lugar +
           faq_block(f"Tanatorio de {name}: dudas frecuentes", tfaq) +
           lead_form(px, f"Reserva de sala en {name}",
@@ -493,7 +534,8 @@ def run(g):
           (f"¿Hay ayudas para pagar el funeral en {name}?", "Sí: el auxilio por defunción de la Seguridad Social y ayudas de servicios sociales. Le orientamos sobre cuáles puede solicitar."),
           ("¿Puedo pagar a plazos?", "Sí, ofrecemos opciones de financiación, especialmente para familias sin seguro de decesos."),
         ]
-        body = (page_hero(f"Precios funerarios en {name}", f"Tarifas claras de incineración, entierro y traslados en {name}. Presupuesto por escrito y sin cargos ocultos.")
+        body = (page_hero(f"Precios funerarios en {name}", f"Tarifas claras de incineración, entierro y traslados en {name}. Presupuesto por escrito y sin cargos ocultos.",
+                    image=PRECIO_HERO.get(c["slug"], "assets/blog-ayudas.jpg"))
                 + pgrid + info + cta_band(px)
                 + faq_block(f"Preguntas sobre precios en {name}", pfaq)
                 + lead_form(px, f"Pida su presupuesto en {name}", f"Cuéntenos qué necesita y le preparamos un presupuesto claro para {name}, sin compromiso."))
@@ -515,7 +557,8 @@ def run(g):
         return f'<h2 class="help-h2">{title}</h2><div class="faq">{items}</div>'
 
     help_body = (
-      page_hero("Necesito ayuda","Respuestas claras a las dudas más frecuentes en un momento difícil.") +
+      page_hero("Necesito ayuda","Respuestas claras a las dudas más frecuentes en un momento difícil.",
+                image="assets/blog-fallecimiento.jpg") +
       crumbs_html(px, [("Inicio",""),("Necesito ayuda","necesito-ayuda/")]) +
       '<section class="section"><div class="container" style="max-width:820px">' +
       '<p class="prose-lead">Sabemos que cuando fallece un ser querido surgen muchas preguntas y pocas respuestas. Aquí reunimos, de forma breve y clara, lo que más nos consultan las familias. Y si necesita hablar con alguien ahora mismo, estamos a una llamada.</p>' +
@@ -580,7 +623,8 @@ def run(g):
             </div>
           </a>''' for p in BLOG_POSTS)
     body = (
-      page_hero("Blog · Guías y consejos","Información útil y cercana para acompañarle en cada situación.") +
+      page_hero("Blog · Guías y consejos","Información útil y cercana para acompañarle en cada situación.",
+                image="assets/blog-duelo.jpg") +
       crumbs_html(px, [("Inicio",""),("Blog","blog/")]) +
       '<section class="section"><div class="container"><div class="post-grid">' + cards + '</div></div></section>' +
       cta_band(px)
@@ -637,7 +681,8 @@ def run(g):
     # ============================== CONTACTO / QUIENES SOMOS ==============================
     px = prefix_for("contacto/")
     body = (
-      page_hero("Contacto","Estamos a su lado las 24 horas. Llámenos o escríbanos.") +
+      page_hero("Contacto","Estamos a su lado las 24 horas. Llámenos o escríbanos.",
+                image="assets/equipo.jpg") +
       crumbs_html(px, [("Inicio",""),("Contacto","contacto/")]) +
       f'''<section class="section" id="quienes-somos"><div class="container media">
         <div class="media__img"><img src="{px}assets/equipo.jpg" alt="Espacio de atención sereno y acogedor con luz natural cálida" loading="lazy" /></div>

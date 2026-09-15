@@ -653,9 +653,10 @@ img { max-width: 100%; height: auto; display: block; }
   color: #fff; padding: 48px 0; text-align: center;
 }
 .page-hero--photo {
-  background:
-    linear-gradient(160deg, rgba(43,36,30,.80), rgba(43,36,30,.88)),
-    url("assets/camino-sereno.jpg") center / cover no-repeat;
+  background-color: #2b241e;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .page-hero h1 { color: #fff; font-size: 1.85rem; margin-bottom: 10px; }
 .page-hero p { color: #e6ddce; max-width: 640px; margin: 0 auto; }
